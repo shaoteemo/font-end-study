@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        window.onload = function (){
+
+            // 创建元素
+            let title = document.createElement("h1");
+            title.innerText = "这是通过JS创建的一个标题";
+            console.log(title);
+            // 输出到页面
+            outputBody(title);
+
+            // 创建文本节点
+            let textNode = document.createTextNode("这是一个文本节点");
+            console.log(textNode);
+            outputBody(textNode);
+
+            // 创建属性
+            let attributeClass = document.createAttribute("class");
+            attributeClass.value = "title";
+            console.log(attributeClass);
+            // 将属性追加至标签
+            addAttr(title , attributeClass);
+            addAttribute(title , "title" , "标题");
+
+
+            /*将内容输出至body*/
+            function outputBody(element){
+                let body = document.getElementsByTagName("body");
+                // 追加填充Body子元素内容；
+                body[0].appendChild(element);
+            }
+
+            /*将属性设置至元素*/
+            function addAttr(tag , attribute){
+                tag.setAttributeNode(attribute);
+            }
+
+            /*将属性添加至元素*/
+            function addAttribute(tag , attr , value){
+                tag.setAttribute(attr , value);
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

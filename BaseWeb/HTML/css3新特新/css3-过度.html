@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            此属性配合事件使用。
+            transition有四个属性：
+                1.transition-property：过渡属性。
+                2.transition-duration：过渡效果花费时间。
+                3.transition-timing-function：过渡效果时间曲线（ease(逐渐变慢)|ease-in(加速)|ease-out(减速)|ease-in-out(先加速后减速)）
+                4.transition-delay：动画播放延迟时间 default：0。
+        */
+        .container{
+            width: 100px;
+            height: 100px;
+            opacity: 1;
+            background-color: blueviolet;
+            /* 使用动画 */
+            transition: all 1s ease 0.5s;
+        }
+
+        .container:hover{
+            width: 300px;
+            height: 300px;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+</body>
+</html>

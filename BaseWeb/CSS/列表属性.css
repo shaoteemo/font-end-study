@@ -1,0 +1,12 @@
+.ulist{
+    list-style-type: circle;
+}
+
+.img-list{
+    list-style-image: url("../resource/d6aac79621ac170b02ea0c8f33c9c15716fe444b.gif");
+    list-style-position: inside;
+}
+
+.style-list{
+    list-style: none;
+}

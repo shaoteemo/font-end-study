@@ -1,0 +1,26 @@
+.text{
+    color: green;
+    color: #34acf3;
+    color: rgb(206, 93, 110);
+    color: rgba(0, 0, 0, 1);
+    /* 字体大小。谷歌浏览器可能最小12px */
+    font-size: 45px;
+
+    /* 
+        字体粗细
+            1.bold：700
+            2.bolder：500
+            3.lighter：100
+    */
+    font-weight: 700;
+
+    /* 
+        字体样式
+            normal：默认
+            italic：斜体
+    */
+    font-style: normal;
+
+    font-family: "KaiTi" , "KaiTi" , "KaiTi";
+
+}

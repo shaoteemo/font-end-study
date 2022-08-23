@@ -1,0 +1,56 @@
+.box{
+    height: 300px;
+    width: 300px;
+    float: left;
+    background-color: antiquewhite;
+}
+
+h3{
+    height: 200px;
+}
+
+.img{
+    height: 300px;
+    width: 600px;
+    float: left;
+    background-image: url("../resource/实操用图片/2.webp");
+    /* 默认填充 
+        不填充：no-repeat
+    */
+    background-repeat: no-repeat;
+    /* 
+        背景图像大小
+            background-size: x  y;
+    */
+    /* background-size: 600px , 300px ; */
+    /* background-size: 100% 100%; */
+    /* 
+        裁剪：cover
+        不裁剪：
+     */
+    background-size: cover;
+
+    /* 
+        截取位置 
+            x y
+    */
+    /* background-position: center center; */
+    background-position: center;
+    background-position: 30% 10%;
+    background-position: 10px 20px;
+
+    /* 
+        设置背景图片是否固定还是随页面滚动
+            scroll：滚动
+            fixed：固定(相对于容器)
+
+    */
+    background-attachment: scroll;
+
+    /* 
+        复合属性：
+            background-image background-repeat background-position background-size
+        size：可能不生效。单写
+    */
+    background: url("") no-repeat center scroll;
+}

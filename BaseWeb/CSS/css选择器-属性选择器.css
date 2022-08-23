@@ -1,0 +1,42 @@
+/* 选取带有指定属性名的元素 */
+a[test]{
+    background-color: yellow;
+}
+
+/* 带有属性并且值相等的元素 */
+a[test="2"]{
+    background-color: yellowgreen;
+    font-size: 20px;
+}
+
+/* 选取属性值包含指定词汇的元素 */
+[ppp~=ppp]{
+    background-color: aqua;
+}
+[ppp~=yyy]{
+    font-family: "KaiTi";
+    font-size: 30px;
+}
+
+/* 用于选取带有以指定值开头的元素 （注意需要整个单词） */
+[ppp|=zh]{
+    color: red;
+}
+
+/* 匹配属性值以指定值开头的每个元素 */
+[ppp^=a]{
+    color: aqua;
+}
+[ppp|=ab]{
+    color: red;
+}
+
+/* 匹配属性值以指定值结尾的元素 */
+[ppp$=aaa]{
+    color: blue;
+}
+
+/* 选取属性值包含指定值元素 */
+[hhh*="80"]{
+    color: coral;
+}

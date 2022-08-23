@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //add
+        var num1 = 10;
+        var num2 = 20;
+        console.log(num1 + num2) ;
+        //subtract
+        console.log(num1 - 20);
+        // 非数值相加
+        var bool = true;
+        var string = 'test';
+        console.log(num1 + bool) // 11做计算时boolean会尝试转成数值后相加
+        console.log(num1 + string); // 10test
+        console.log("------------------------------------------");
+        var bool = true;
+        var num = 1;
+        var num2 = undefined;
+        var obj = null;
+        console.log(bool == num); //true
+        console.log(bool === num); //false
+        console.log(bool != num); //false
+        console.log(bool !== num); //true
+        console.log(num2 == obj); //true
+        console.log(num2 === obj); //false
+        console.log(num2 != obj); //false
+        console.log(num2 !== obj); //true
+
+        // 布尔运算
+        console.log("==========================================================");
+        var bool = false;
+        console.log(!bool);
+        console.log("以下6个值取反为true");
+        console.log("undefined:" + (!undefined));
+        console.log("false:" + (!false));
+        console.log("null:" + (!null));
+        console.log("0:" + (!0));
+        console.log("NaN:" + (!NaN));  // NaN:数值运算出错返回
+        console.log("'':" + (!''));
+
+        // 强制类型转换
+        Number("123");  // 123
+        Number("123a"); // NaN
+
+        String(123);  // "123"
+        String(true); // "true"
+
+        Boolean(1);  // true
+        // 以下bool为false其他的为true
+        Boolean("");  // false
+        Boolean(undefined); // false
+        Boolean(null); // false
+        Boolean(NaN); // false
+        Boolean(0); //false
+
+        // 条件语句
+        // 单分支语句
+        if (true/*Condition*/) {
+            // do something
+        }
+        if(condition) //do something
+        // 多分支语句
+        if (true/*Condition*/) {
+            // do something
+        } else {
+            // do something
+        }
+        if (condition) {
+            // do something
+        }else if(condition){
+            // do something
+        }else{
+            // do something
+        }
+
+        // switch
+        switch (key) {
+            case value:
+                break;
+            case value:
+                break;
+            default:
+                break;
+        }
+        
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

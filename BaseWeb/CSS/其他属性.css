@@ -1,0 +1,64 @@
+.text{
+    /* 行间距（如：文字空白间距） */
+    letter-spacing: 7px;
+}
+
+.text1{
+    /* 
+        行高 。一般使用：在一个容器中如果只有一行文本，
+        可以用此属性居中 。（见text2）
+    */
+    line-height: 20px;
+}
+
+.box{
+    height: 80px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.text2{
+    line-height: 80px;
+}
+
+/* overflow属性
+    处理内容超出部分显示方式
+*/
+.test-overflow{
+    width: 300px;
+    height: 300px;
+    background-color: grey;
+    /* 
+        hidden：超出的隐藏
+        scroll：滚动
+        auto：自动
+    */
+    overflow: auto;
+}
+
+/* 文本超过容器不换行用..代替 */
+.text4{
+    width: 200px;
+    height: 50px;
+    /* 以下属性联合使用 */
+        /* 正常显示 */
+    white-space: nowrap;
+        /* 超出部分隐藏 */
+    overflow: hidden;
+        /* 隐藏的部分省略号代替 */
+    text-overflow: ellipsis;
+}
+
+img{
+    /* 某元素的纵向对其 ，一般图文交叉效果显著 */
+    vertical-align: middle;
+}
+
+/* 透明度 */
+.container{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    /* 透明度 0-1 */
+    opacity: 0.3;
+}

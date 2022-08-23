@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 转换的效果可以让某个元素改变形状大小和位置 -->
+    <style>
+        *{
+            margin-left: 50px;
+        }
+        .test1{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            /* 使用转换。x,y转换 */
+            transform: translate(100px , 50px);
+        }
+
+        .test2{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            /* 使用转换。旋转(度数deg)*/
+            transform: rotate(-30deg);
+        }
+
+        .test3{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            /* 使用转换。缩放(x,y)*/
+            transform: scale(0.8 , 0.8);
+        }
+
+        /* 文字缩小 */
+        p{
+            transform: scale(0.6);
+        }
+
+        .test4{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            color: chartreuse;
+            /* 使用转换。倾斜(x deg,y deg)*/
+            transform: skew(5deg , 5deg);
+        }
+
+        .test5{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            color: chartreuse;
+            margin-top: 50px;
+            /* 使用转换。3D X轴旋转*/
+            transform: rotateX(50deg);
+        }
+
+        .test6{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            color: chartreuse;
+            margin-top: 10px;
+            /* 使用转换。3D Y轴旋转*/
+            transform: rotateY(50deg);
+        }
+
+        .test7{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            color: chartreuse;
+            margin-top: 30px;
+            /* 使用转换。3D Z轴旋转*/
+            transform: rotateZ(50deg);
+        }
+
+        /* 鼠标放上抬起效果实现 */
+        .test8{
+            width: 200px;
+            height: 100px;
+            margin-top: 50px;
+            background-color: gray;
+            color: aquamarine;
+            border-radius: 9px;
+            padding: 9px;
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 50px;
+        }
+        .test8:hover{
+            box-shadow: 0px 3px 8px black;
+            border-radius: 9px;
+            /* 3D (x,y,z)*/
+            transform: translate3d(0px , -2px , 0px);
+            -webkit-transform: translate3d(0px , -2px , 0px);
+        }
+        .test8:active{
+            transform: translate3d(0px , -1px , 0px);
+            -webkit-transform: translate3d(0px , -1px , 0px);
+            -ms-transform: translate3d(0px , -1px , 0px);
+        }
+        .test8::before{
+            content: "鼠标放上抬起效果实现";
+        }
+
+    </style>
+</head>
+<body>
+    <div class="test1">转换</div>
+    <div></div>
+    <div class="test2">旋转</div>
+    <div></div>
+    <div class="test3">缩放</div>
+    <div></div>
+    <p>文字缩小术。Chrome有字体最小值上限</p>
+    <div></div>
+    <div class="test4">倾斜</div>
+    <div></div>
+    <div class="test5">3D X轴旋转</div>
+    <div></div>
+    <div class="test6">3D Y轴旋转</div>
+    <div></div>
+    <div class="test7">3D Z轴旋转</div>
+    <div></div>
+    <div class="test8"></div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+.base{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    border: 40px solid rebeccapurple;
+    padding: 10px;
+    margin: 20px;
+    /* 
+        标准盒子 
+            由里至外：内容（content）、内边距（padding）、边框（border）、外边距（margin）。
+    */
+    box-sizing: content-box;
+
+}
+
+.border-box{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    border: 40px solid rebeccapurple;
+    padding: 10px;
+    margin: 20px;
+    /* 
+        转换为怪异盒子
+            由里至外：内容（content）、内边距（padding）、边框（border）、外边距（margin）。
+                内容+内边距+边框=width/height
+                大小=width/height+margin
+    */
+    box-sizing: border-box;
+
+}
+
+/* 
+    弹性盒子。CSS3新特性
+        存在与父容器与子容器关系中
+*/
+.flex-box{
+    width: 500px;
+    height: 500px;
+    background-color: #999;
+
+    /* 以下属性应用在弹性盒子父容器中 */
+     /* 
+        在父容器中改变弹性盒子布局 
+            弹性盒子内元素默认水平摆放
+     */
+     /* 开启弹性盒子布局 */
+     display: flex;
+
+     /* 
+        指定元素摆放方式  flex-direction：
+            row:横向从左到右排列（左对齐）。default
+            row-reverse：元素反转摆放（右对齐）。
+            column:纵向摆放（上对齐）
+            column-reverse:纵向反转摆放（下对齐）
+     */
+     flex-direction: row;
+
+     /* 
+        水平对其的调整 justify-content:
+            flex-start: 靠左对齐 default
+            flex-end: 靠右对齐
+            center: 水平居中
+            space-between: 左右对其。多余的留白
+            space-around: 左右对其。盒子在区域内居中（两边有留白）
+     */
+     justify-content: center;
+
+     /* 
+        垂直对其调整 align-items：
+            flex-start:上对其 。default
+            flex-end: 下对其
+            center: 居中     */
+     align-items: center;
+
+}
+
+/* 以下新属性针对弹性盒子子元素使用 */
+.flex-box div{
+    width: 100px;
+    height: 100px;
+
+    /* 
+        flex-grow：权重
+            1.flex：数值
+                warn：宽度不在生效，宽度权重比flex低
+    */
+    /* flex: 1; */
+}
+
+.div1{
+    background-color: yellow;
+    flex: 2;
+}
+
+.div2{
+    background-color: red;
+    flex: 1;
+}
+
+.div3{
+    background-color: rebeccapurple;
+    flex: 7;
+}

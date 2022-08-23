@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动端媒体查询配置 -->
+    <!-- 
+        link:https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag
+        viewport：控制视口的大小和形状。
+        content：
+            1.width：视口宽度。特殊值：device-width（适应设备宽度）。minimum：1 ， maximum：10000。
+            2.height：视口高度。特殊值：device-height（适应设备高度）。minimum：1 ， maximum：10000。
+            3.initial-scale：第一次加载页面初始缩放比例。default：1。minimum：0.1 ， maximum：10。
+            4.minimum-scale：允许最小缩放比例。default：0.1。minimum：0.1 ， maximum：10。
+            5.maximum-scale：允许最大缩放比例。default：10。minimum：0.1 ， maximum：10。
+            6.user-scalable：控制页面是否允许放大和缩小操作。default：1（yes）。0（no）
+     -->
+    <meta name="viewport" content="width=device-width , initial-scale=1 ,maximum-scale=1 , user-scalable=no">
+    <title>Document</title>
+    <style>
+        .boox{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="boox"></div>
+</body>
+</html>

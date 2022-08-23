@@ -1,0 +1,31 @@
+.container{
+    width: 50%;
+    height: 300px;
+    margin-top: 13px;
+    border-width: 4px;
+    border-color: blueviolet;
+    border-style: dotted;
+    border-style: solid dashed dotted double;
+    border-radius: 10px;
+}
+
+.container2{
+    width: 50%;
+    height: 300px;
+    margin-top: 13px;
+    border-top: 1px dashed greenyellow;
+    border-right: 2px dotted yellow;
+    border-bottom: 3px solid red;
+    border-left: 4px double blueviolet;
+}
+
+*{
+    margin: 0 auto;
+}
+
+[title]{
+    color: blue;
+    margin-left: 20px;
+    border-left: 3px solid blue;
+    padding-left: 10px;
+}

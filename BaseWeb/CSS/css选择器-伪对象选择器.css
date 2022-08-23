@@ -1,0 +1,23 @@
+/* 伪元素选择器 */
+ul::before{
+    content: "<h1>我是前面的内容</h1>";
+    color: aquamarine;
+    font-size: 30px;
+}
+
+ul::after{
+    content: "我是后面的内容";
+    color: yellowgreen;
+}
+
+h3::before{
+    content: "";
+    padding-left: 5px;
+    background-color: blueviolet;
+}
+
+h3::after{
+    content: "";
+    padding-left: 5px;
+    background-color: blueviolet;
+}

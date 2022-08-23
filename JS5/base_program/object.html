@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+
+        /*对象*/
+        let user = {
+            "userName":"Bill",
+            "userAge":20,
+            "gender":"Female",
+            /*前端对象中的函数*/
+            "func": function (x , y){
+                return x + y;
+            },
+            /*前端对象中的对象*/
+            "book":{
+                "name": "Java",
+                "price": 29.88
+            }
+        }
+
+        //调用对象中的函数
+        console.log(user.func(2, 3));
+        //获取属性值
+        console.log(user.userName);
+        //链式调用
+        console.log(user.book.price);
+
+        // 属性读取方式二
+        console.log(user["userName"]);
+
+        // 属性赋值
+        user.userAge = 30;
+        user["userAge"] = 30;
+        console.log(user.userAge);
+
+        // 新增属性
+        user.newField = "news";
+        console.log(user.newField);
+
+        // 获取对象所有key值
+        let keys = Object.keys(user); //返回数组
+        console.log(keys);
+        //获取所有值
+        keys.forEach(item => {
+            document.write(user[item] + ",");
+        })
+
+        // 删除对象属性
+        let isSuccess = delete user.newField;
+        console.log(isSuccess);
+
+        // for...in...循环.遍历对象
+        for (let key in user) {
+            console.log(user[key]);
+        }
+
+        console.log("======================对象方法========================")
+
+        /*对象方法*/
+        //自定义对象方法
+        Object.sum = function (sum1, sum2) {
+            console.log(sum1 + sum2);
+        }
+        //调用对象方法
+        Object.sum(10 , 20);
+
+        /*Object实例方法*/
+        //自定义对象实例方法调用
+        Object.prototype.sum = function (sum1 , sum2){
+            console.log(sum2 + sum1);
+        }
+        //调用实例方法
+        let instance = 10;
+        instance.sum(instance , 20);
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

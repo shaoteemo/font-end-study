@@ -1,0 +1,139 @@
+/* 浮动带来的问题 */
+.container1{
+    border: 1px solid rebeccapurple;
+}
+
+.container1 .box1{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    margin: 6px;
+    /* 这样会导致父元素容器高度塌陷 */
+    float: left;
+}
+/* ------------------------------------------- */
+.box2{
+    width: 100px;
+    height: 100px;
+    background-color: royalblue;
+    margin: 5px;
+    /* 这样会导致后面的元素产生影响 */
+    float: left;
+}
+
+.nav{
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+}
+
+/* 清除浮动 */
+/* 1.直接给父元素添加宽高 */
+.container1-g{
+    border: 1px solid darkgoldenrod;
+    width: 350px;
+    height: 130px;
+}
+
+.box1-g{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    margin: 5px;
+    float: left;
+}
+/* 2.使用clear属性清楚浮动。作用于受影响的元素 */
+.container2-g{
+    border: 1px solid darkgoldenrod;
+    width: 350px;
+    height: 230px;
+}
+
+.box2-g , .nav-g{
+    width: 100px;
+    height: 100px;
+    background-color: chartreuse;
+}
+
+.box2-g{
+    margin: 5px;
+    float: left;
+}
+
+.nav-g{
+    background-color: darkorchid;
+    /* 使用clear作用于受影响的元素 both:同时清除左(left)右(right)浮动*/
+    clear: both;
+}
+
+/* 3.使用overflow同时清除两种影响 */
+.container3-g{
+    border: 1px solid orange;
+    /* 给浮动父元素加overflow */
+    overflow: hidden;
+    clear: both;
+}
+.box3-g , .nav3-g{
+    width: 100px;
+    height: 100px;
+    background-color: chartreuse;
+}
+.box3-g{
+    margin: 5px;
+    float: left;
+}
+.nav3-g{
+    background-color: fuchsia;
+}
+
+/* 4.使用伪对象。给父元素加伪对象。 */
+.container4-g{
+    border: 1px solid orange;
+}
+.container4-g::after{
+    content: "";
+    /* 伪对象为内联元素。需要转换为块级元素 */
+    display: block;
+    /* 清除浮动 */
+    clear: both;
+}
+.box4-g , .nav4-g{
+    width: 100px;
+    height: 100px;
+    background-color: chartreuse;
+}
+.box4-g{
+    margin: 5px;
+    float: left;
+}
+.nav4-g{
+    background-color: fuchsia;
+}
+
+
+/* 自用 */
+.content{
+    border: 1px solid red;
+    width: 350px;
+    height: 130px;
+    float: right;
+    margin: 5px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+p{
+    font-family: "DengXian Regular";
+    font-size: 20px;
+    padding: 5px;
+}
+
+body{
+    margin: 0 auto;
+    width: 70%;
+}
+h2{
+    font-family: "KaiTi" ,'Microsoft YaHei';
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        window.onload = function (){
+            // 更具标签名称获取元素
+            let tagDiv = document.getElementsByTagName("div");  // return ：HTMLCollection
+            console.log(tagDiv);
+            console.log(tagDiv[1]);
+            // 给元素设置内容。带标签的
+            tagDiv[1].innerHTML = "<em>你好</em>";
+
+            //获取页面所有的元素
+            let getAllTag = document.getElementsByTagName("*");
+            console.log(getAllTag);
+
+            // 根据Class获取元素
+            let byClassName = document.getElementsByClassName("box1");  // return ：HTMLCollection
+            console.log(byClassName);
+            // 给元素设置内容。不解析标签的。
+            byClassName[0].innerText = "<em>你好box1</em>";
+            let allBox = document.getElementsByClassName("box");
+            console.log(allBox);
+            let multipleBox = document.getElementsByClassName("box box1");
+            console.log(multipleBox);
+
+            //根据name属性获取元素
+            let elementsByName = document.getElementsByName("p1");  // return ：NodeList
+            console.log(elementsByName);
+
+            //根据ID属性获取元素
+            let elementById = document.getElementById("title");
+            setTimeout(function (){
+                elementById.innerHTML = "这是一个标题";
+            }, 3000)
+            console.log(elementById);   // element
+
+            // 下面两个API来自ES5
+            // 接受一个CSS选择器作为参数，返回匹配的元素。如果有多个则返回第一个。如果不存在返回null。
+            let element = document.querySelector("[name = p1]"); // return ：NodeList
+            console.log(element);
+            // 下面的返回全部
+            let selectorAll = document.querySelectorAll(".box");
+            console.log(selectorAll);
+
+        }
+
+    </script>
+</head>
+<body>
+
+<strong id="title">有ID的标签</strong>
+
+<p name="p1">1</p>
+<p>2</p>
+<p>3</p>
+
+<div class="box1 box">div1</div>
+<div class="box2 box">div2</div>
+<div class="box3 box">div3</div>
+
+</body>
+</html>

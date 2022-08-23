@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*函数参数传递不同，处理结果不同*/
+        //参数省略
+        function add(x , y) {
+            console.log(x + y);
+        }
+        add(); // NaN
+        add(10 , null); //10
+        add(10); //NaN
+        /*注意：函数传递的是基本数据类型（String ， NUmber ， Boolean），为值传递，对于传递参数的函数因此不会影响外部参数值*/
+        var num = 10;
+        function test1(num) {
+            num = 100; // 不会覆盖外部数据
+        }
+        function test2() {
+            num = 10; //会覆盖外部值
+        }
+        /*如有同名参数则取后面的值*/
+        function test3(num, num) {
+            console.log(num);
+        }
+        test3(1 , 2);
+
+        /*不定参数个数读取*/
+        function modify(field) {
+            // console.log(field);
+            /*读取多个参数值*/
+            // arguments类似数组。但是其实是一个对象。
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+            console.log(arguments[3]);
+            console.log(arguments[4]);
+            console.log(arguments[5]); // undefined
+        }
+        modify(10 ,20 , 30 ,40 ,50);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+        * 专有名词解释：
+        *   IIFE：立即调用执行的函数。
+        * */
+        // 如下两种方式
+        (function (){/*do something*/}());
+        (function (){/*do something*/})();
+
+        /*用法*/
+        (
+            function (){
+                // alert("没有调用就执行了");
+            }()
+        );
+
+        /*IIFE的参数传递*/
+        // 参数必须放在IIFE函数之前，否则变量作用域提升导致无法读取。
+        var numA = 10;
+        var numB = 20;
+        (
+            function (x , y){
+                alert(x + y);
+            }
+        )(numA , numB);  // 此处也可以传递固定值
+
+        /*eval：可以将代码字符串转换成语句执行*/
+        // 常用1：字符Json转换，对象
+        var json = eval("({name:'zhangshan',age:20})");
+        // 常用2：执行代码
+        eval("alert('Eval代码中执行')");
+
+        document.write(json);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var names = ["Tome" , "Smith","Bill" ,"Bob" ,"Barry"];
+        // 设置数组长度,可以将数组置空.
+        /* console.log("初始数组长度：" + names.length)
+        names.length = 12;
+        console.log("设置数组长度：" + names.length)
+        names.length = 0;
+        console.log("将数组置空：" + names.length) */
+        
+        /* 数组的遍历 */
+        // for
+        console.log("------for------");
+        for (let i = 0; i < names.length; i++) {
+            console.log(names[i]);
+        }
+        // while
+        console.log("------while------");
+        let i = 0
+        while(names.length>i){
+            console.log(names[i]);
+            i ++;
+        }
+        // for...each
+        console.log("------for...each------")
+        names.forEach(item => {
+            console.log(item);
+        })
+        // for...in
+        console.log("------for...in------")
+        for(let name in names){
+            console.log(names[name]);
+        }
+
+        /* 数组构造函数 */
+        // 数组空位
+        var books = ["HTML","CSS", ,"JavaScript","Java"]; // 空位会占位置
+        console.log("数组空位：" + books.length);
+        // 构造函数创建数组
+        var arrays = new Array();
+        var arrays = new Array(3); //初始化3个长度数组
+        //判断数组是否为数组
+        console.log("判断数组是否为数组:" + Array.isArray(books));
+        // 注意下面的操作（push ， pop ， unshift ，shift）会改变数组长度，遍历使用下列API操作时需提前声明变量。
+        // push与pop , 向后追加和从后面删除元素
+        var objects = [];
+        objects.push(undefined);//1
+        objects.push("Test");
+        objects.push(true);
+        objects.push(new Array() , {}); // return : 5
+        console.log("向数组中添加元素：" + objects)
+        objects.pop(); // return : 
+        objects.pop(); // return : {}
+        console.log("删除数组的最后一个元素：" + objects);
+        // unshift与shift, 向后追加和从后面删除元素
+        objects.shift();
+        console.log("从前面删除一个元素：" + objects)
+        objects.unshift("abc" , "icbc");
+        console.log("从前面增加一个元素：" + objects)
+        // join
+        var varible = [undefined , null , NaN , 123 ,  , "Test" , true];
+        console.log("Join:" + varible.join("#"));
+        // concat合并数组生成新的数组
+        console.log("concat合并数组：" + books.concat(varible));
+        // reverse倒序数组
+        var latter = ['a','b','c','d','e','f','g'];
+        // 此方法会改变原数组
+        console.log("数组反转：" + latter.reverse())
+        console.log("数组反转：" + latter)
+
+        //slice截取数组生成新的数组(有点类似字符串的slice)
+        console.log("slice截取数组：" + names.slice(0));
+        console.log("slice截取数组：" + names.slice(-2,12));
+        // 如果第一个参数大于等于数组长度，或第二个参数小于等于第一个参数返回空数组。
+        console.log("slice截取数组：" + names.slice(2,1));
+
+        // sort排序默认按照字典顺序排序，会将元素转换成字符串然后排序。对于多位数字，会出现问题。
+        var latter2 = ['a','b','d','e','c','f','g'];
+        console.log( latter2.sort());
+
+        //indexOf / lastIndexOf用法与字符串的API几乎一致
+        latter2.indexOf('b');
+        latter2.lastIndexOf('bb');
+        [NaN].indexOf(NaN); // 永远查不出来，数组使用 === 进行对比。NaN无论使用 == 还是 === 都无法匹配true
+
+        /* 使用实践 */
+        // 字符串倒序
+        var str = "abadffasdasdas";
+        console.log(str.split("").reverse().join(''));
+
+        // 驼峰转换(小驼峰)
+        var strBb = "product-id";
+        var strBbs = strBb.split("-");
+        for (let index = 0; index < strBbs.length; index++) {
+            if(index !== 0){
+                let item = strBbs[index];
+                strBbs[index] = item.charAt(0).toUpperCase() + item.slice(1);
+            }
+        }
+        console.log(strBbs.join(""));
+
+        //二维数组转一维数组
+        var test2 = [1,2,3,[4,5],[6,7,8] ,9 ,0];
+        var temp2 = [];
+        test2.forEach(item => {
+            if(Array.isArray(item)){
+                item.forEach(item2 => {
+                    temp2.push(item2);
+                })
+            }else{
+                temp2.push(item);
+            }
+        })
+        console.log(temp2);
+
+        //数组去重
+        var test3 = [1,2,34,5,9,6,2,3,8,9,5,7];
+        var temp3 = [];
+        for (let index = 0; index < test3.length; index++) {
+            if(temp3.indexOf(test3[index]) === -1) {
+                temp3.push(test3[index]);
+            }
+        }
+        console.log(temp3);
+        for (let index = 0; index < test3.length; index++) {
+            for (let index2 = index + 1; index2 < test3.length; index2 ++) {
+                if(test3[index] === test3[index2]){
+                    // 新API 此API可以在特定的数组位置插入新元素详情请查看API文档
+                    test3.splice(index2 , 1);
+                    index2 --;
+                }
+            }
+        }
+        console.log(test3);
+
+        // 数组排序
+        var test4 = [10,1,2,34,5,9,6,2,3,8,9,5,7,12,0,123456];
+        for(let i = 0 ; i < test4.length - 1; i ++){
+            for(let j = i ; j < test4.length - 1 ; j ++){
+                let temp ;
+                if(test4[i] > test4[j + 1]){
+                    temp = test4[i];
+                    test4[i] = test4[j + 1];
+                    test4[j + 1] = temp;
+                }
+            }
+        }
+        console.log("冒泡排序");
+        console.log(test4);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

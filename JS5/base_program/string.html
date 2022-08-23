@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 字符串定义 */
+        var name = "shaoteemo.com";
+
+        var name2 = 'shaoteemo.com';
+
+        /* 字符串编码 */
+        var encoding = "Hello World!";
+        // 只支持latin1 的Base64编码
+        var encode = btoa(encoding);
+        console.log(encode);
+        // 解码
+        console.log(atob(encode));
+        // 可用于处理中文的URL编码
+        var zh_cn = "你好！";
+        var encode_zh = encodeURIComponent(zh_cn);
+        console.log(encode_zh);
+        console.log(decodeURIComponent(encode_zh));
+        // 字符串的处理
+        var str = "可用于处理中文的URL编码 ";
+        console.log("指定字符串位置的字符：" + str.charAt(0));
+        console.log("最后一个字符：" + str.charAt(str.length - 1));
+        console.log("-1：" + str.charAt(- 1));
+        console.log("超过长度：" + str.charAt(str.length));
+
+        var concat_first = "使用字符串";
+        var concat_second = "链接API（concat）";
+        console.log("字符串连接concat:" + "".concat(concat_first,concat_second,concat_second,concat_first));
+        
+        // 字符串截取(最后一位参数不包含该位置)
+        console.log("slice截取字符串:" + str.slice(1,3));
+        console.log("slice截取字符串：" + str.slice(1));
+        console.log("slice截取字符串负数：" + str.slice(-3));
+        console.log("slice截取字符串负数：" + str.slice(-3 ,-2));
+        console.log("slice截取字符串如果第一个参数大于第二个参数返回空字符串：" + str.slice(-3 ,-6));
+
+        // substring(用法与slice差不多)
+        console.log("substring:" + str.substring(1 , 3));
+        // 不同点。如果起始位置大于结束位置则互换位置
+        console.log("substring：" + str.substring(3,1));
+        // 如果参数为负数则转换为零
+        console.log("substring：" + str.substring(-1 , 2))
+
+        // substr(用法与slice与substring差不多)
+        // 第一个表示开始位置，第二个参数表示截取长度，即 取多少位
+        console.log("substr:" + str.substr(1 , 2));
+        // 第一个数字为负数会倒数计算位置。第二个参数是负数，将自动转换为0
+        console.log("substr:" + str.substr(-3 , 2));
+
+        // indexOf , lastIndexOf从零开始
+        console.log("indexOf（U）:" + str.indexOf("U"));
+        console.log("lastIndexOf（U）:" + str.lastIndexOf("U"));
+        console.log("indexOf（B）:" + str.indexOf("B"));
+        // 第二个参数表示从此位置开始匹配后面的字符
+        console.log("indexOf（U）:" + str.indexOf("U" , 9));
+
+        // trim去除字符串两端的空格。包括\t \n \v \r
+        console.log("trim:" + str.trim());
+        console.log("trimStart(ES6新去除前面空格):" + str.trimStart());
+        console.log("trimEnd(ES6新去除后面空格):" + str.trimEnd());
+
+        // 大小写转换
+        console.log("toLowerCase:" + str.toLowerCase());
+        console.log("toUpperCase:" + str.toUpperCase());
+
+        // search与replace
+        console.log("search(可以匹配正则的函数):" + str.search(/U{1}/));
+        console.log("replace:" + str.replace("URL" , "url"));
+
+        //split
+        console.log("split字符串切割：" + str.split(""));
+        console.log("split字符串切割指定数组长度：" + str.split("" , 2));
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

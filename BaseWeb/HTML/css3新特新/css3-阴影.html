@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 盒阴影 */
+        .box-shadow{
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            margin: 100px;
+            
+            /* 
+                添加阴影：
+                    1.水平阴影（h-shadow）
+                    2.垂直阴影（v-shadow）
+                    3.模糊度（blur）
+                    4.阴影尺寸（spread）
+                    5.阴影颜色（color）
+                    6.外部改为内部阴影（inset）
+             */
+             /* 无阴影效果 */
+            box-shadow: 3px 3px rebeccapurple ;
+            /* 有阴影效果 */
+            box-shadow: 3px 3px 5px rebeccapurple ;
+            /* 多方阴影 */
+            box-shadow: 0px 1px 6px rebeccapurple;
+            /* 阴影尺寸 */
+            box-shadow: 0px 1px 6px 3px rebeccapurple;
+            /* 改为内阴影 */
+            /* box-shadow: 0px 1px 6px rebeccapurple inset; */
+        }
+
+        /* 字体阴影。取值与上面一致 */
+        .title{
+            text-shadow: 5px 5px 3px royalblue;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-shadow"></div>
+    <h1 class="title">文字阴影ShaoTeemo</h1>
+</body>
+</html>

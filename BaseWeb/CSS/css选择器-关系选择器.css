@@ -1,0 +1,29 @@
+/* 
+    子代选择器：
+        选择所有E元素的直接子元素，对更深层级不生效
+*/
+div>a{
+    color: greenyellow;
+}
+/* 
+    后代选择器:
+        选择所有被E元素包含的F元素
+ */
+.list li{
+    color: greenyellow;
+}
+/* 
+    相邻兄弟选择器:
+        选择紧跟E元素后面的F元素 ， 选择相邻的第一个元素
+ */
+ h1+p{
+    color: blue;
+ }
+
+/* 
+    通用兄弟选择器:
+        所有E元素后面的元素生效
+ */
+ h2 ~ ul{
+    color: aquamarine;
+ }

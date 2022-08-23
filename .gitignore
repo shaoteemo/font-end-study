@@ -1,0 +1,8 @@
+*.iml
+/**/.idea
+/**/target
+/**/resource
+bootstrap/
+/xiaomi_web/
+/响应式项目/
+/**/.vscode

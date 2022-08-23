@@ -1,0 +1,55 @@
+/* 全局选择器 */
+*{
+    border: 1px solid green;
+    /* 可用于全局初始化 : 如下操作。 */
+    /* margin: auto;
+    padding: auto; */
+}
+
+/* 元素（标签）选择器 */
+p{
+    font-family: "KaiTi";
+    font-size: 35px;
+    color: rgb(12, 90, 155);
+}
+
+/* 类选择器 */
+.strong{
+    font-family: "KaiTi";
+    color: rgb(96, 9, 155);
+    font-size: 35px;
+}
+
+/* ID(具有唯一性)选择器 */
+#input{
+    font-family: "KaiTi";
+    color: rgb(97, 94, 94);
+    font-size: 35px;
+    margin: 20px;
+    width: 500px;
+}
+
+/* 合并选择器 */
+p , h1 , .strong{
+    margin: 20px;
+}
+
+/* 
+    选择器优先级（权重）
+        1.元素选择器：1
+        2.类（Class）选择器：10
+        3.ID选择器：100
+        4.内联样式：1000
+        优先级：4>3>2>1
+    
+        优先级可以合并。
+*/
+/* 合并的优先级 */
+/* 子选择器 */
+.box .title{ /* 权重=10+10 */
+    color: darkgoldenrod;
+}
+
+.title{ /* 权重=10 */
+    color: red;
+}

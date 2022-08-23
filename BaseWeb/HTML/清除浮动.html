@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/清除浮动.css">
+</head>
+
+<body>
+
+    <h2>浮动产生的问题</h2>
+    <!-- 
+        浮动产生的问题：
+            1.父元素高度塌陷
+     -->
+    <div class="container1">
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+    </div>
+
+    <div class="content">
+        <p>父元素高度塌陷</p>
+    </div>
+
+    <hr style="clear: both;">
+    <!-- 
+        2.对后面的元素布局产生影响
+      -->
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="nav"></div>
+
+    <div class="content">
+        <p>对后面的元素布局产生影响</p>
+    </div>
+
+    <hr style="clear: both;">
+    <hr style="clear: both;">
+
+    <h2>清除浮动</h2>
+    <!-- 1.直接设置父元素容器宽高 -->
+    <div class="container1-g">
+        <div class="box1-g"></div>
+        <div class="box1-g"></div>
+        <div class="box1-g"></div>
+    </div>
+
+    <div class="content">
+        <p>直接设置父元素容器宽高</p>
+    </div>
+
+    <hr style="clear: both;">
+
+    <!-- 2.使用clear属性清除浮动。作用于受影响的元素 -->
+    <div class="container2-g">
+        <div class="box2-g"></div>
+        <div class="box2-g"></div>
+        <div class="box2-g"></div>
+        <div class="nav-g"></div>
+    </div>
+
+    <div class="content">
+        <p>使用clear属性清除浮动。<br>作用于受影响的元素</p>
+    </div>
+
+    <hr style="clear: both;">
+    <!-- 3.使用overflow -->
+
+    <div class="container3-g">
+        <div class="box3-g"></div>
+        <div class="box3-g"></div>
+        <div class="box3-g"></div>
+    </div>
+    <div class="nav3-g"></div>
+
+    <div class="content">
+        <p>使用overflow属性作用于父元素。<br>父元素不能设置高度</p>
+    </div>
+
+    <hr style="clear: both;">
+    <!-- 4.使用伪对象 -->
+
+    <div class="container4-g">
+        <div class="box4-g"></div>
+        <div class="box4-g"></div>
+        <div class="box4-g"></div>
+    </div>
+    <div class="nav4-g"></div>
+
+    <div class="content">
+        <p>使用伪对象。父元素不能设置高度</p>
+    </div>
+
+</body>
+
+</html>

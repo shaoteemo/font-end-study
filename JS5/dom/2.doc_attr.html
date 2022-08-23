@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        // 预先加载所有页面内容
+        window.onload = function (){
+            // 获取文档声明.如果没有=>null
+            console.log(document.doctype);
+            // 获取当前文档根节点
+            console.log(document.documentElement);
+            // 获取body .注意当body没有被加载时此处获取的为null。html由上至下加载
+            console.log(document.body);
+            // 获取head
+            console.log(document.head);
+            // 获取表单
+            console.log(document.forms);
+            // 获取图片元素
+            console.log(document.images);
+            // 获取脚本
+            console.log(document.scripts);
+            // 获取域名
+            console.log(document.domain);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

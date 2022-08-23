@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 测试过渡动画及对比 */
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            transition: all 1s ease;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .box:hover {
+            background-color: aquamarine;
+        }
+
+        /* 动画的使用 */
+        /* 声明动画 名称自定义 */
+        @keyframes myAnimation {
+            0% {
+                background-color: aqua;
+            }
+
+            50% {
+                background-color: yellow;
+            }
+
+            100% {
+                background-color: aquamarine;
+            }
+        }
+
+        /* 
+            使用声明的动画属性animation：
+                1.name：动画名称
+                2.duration：设置动画持续时间。
+                3.timing-function：设置动画效果。
+                    3.1：取值
+                        ease	    逐渐变慢（默认）
+                        linear	    匀速
+                        ease-in	    加速
+                        ease-out	减速
+                        ease-in-out	先加速后减速
+                4.delay：动画开始时间。
+                5.iteration-count：动画循环次数
+                6.direction：设置动画播放方向
+                    6.1：取值
+                        normal	    默认值为normal表示向前播放
+                        alternate	动画播放在第偶数次向前播放，第奇数次向反方向播放
+                7.animation-play-state：控制动画的播放状态：
+                    7.1：running代表播放，而paused代表停止播放
+         */
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            /* 不添加事件默认就会执行 */
+            /* animation: myAnimation 2s linear 0s 2; */
+        }
+
+        /* 添加事件 */
+        .box2:hover {
+            animation: myAnimation 2s linear 0s 2 alternate;
+        }
+
+        /* 练习 */
+        body *{
+            margin: 10px;
+        }
+
+        * {
+            margin: 0px;
+            animation: body_animation 1s linear 0s 1;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            background-color: aquamarine;
+        }
+
+        @keyframes body_animation {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        body {
+            background-color: rgb(243, 243, 243);
+            background-image: url("F:/图片/4K/917385.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .box4 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">测试过渡动画及对比</div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4">
+            <p>一段测试文字，来康康阴影度。</p>
+        </div>
+    </div>
+</body>
+
+</html>

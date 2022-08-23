@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>date时间Api</title>
+    <script src="../constants.js"></script>
+    <script>
+        // 获取当前时间
+        document.write(Date());newLine();
+
+        // 自定义时间
+        let now = new Date();
+        let time = new Date(163782916312321);
+        document.write(time);newLine();
+        let time2 = new Date("January 6, 2021");
+        document.write(time2);newLine();
+        let time3 = new Date(2022 , 0 , 1 , 23 ,59 , 59 ,999);
+        document.write(time3);newLine();
+        let time4 = new Date("2022/1/4");
+        document.write(time4);newLine();
+        // 时间运算
+        let d1 = new Date("2022/1/1");
+        let d2 = new Date("2022/1/2");
+        document.write("时间计算：" + (d2 - d1));newLine();
+
+        // 时间解析.解析失败NaN
+        document.write(Date.parse("2999-12/31"));newLine();
+        document.write(Date.parse("2999-12/31a"));newLine();
+
+        // 实例API
+        let date = new Date();
+        document.write("to UTC时间，区分时区 +0：" + date.toUTCString());newLine();
+        //标准时间
+        document.write("toDateString：" + date.toDateString());newLine();
+        document.write("toTimeString：" + date.toTimeString());newLine();
+        // 本地时间
+        document.write("toLocaleDateString：" + date.toLocaleDateString());newLine();
+        document.write("toLocaleTimeString：" + date.toLocaleTimeString());newLine();
+
+        //获取单独的年月日
+        document.write("年：" + date.getFullYear());newLine();
+        // 月份 0-11 0表示1月
+        document.write("月：" + (date.getMonth() + 1));newLine();
+        document.write("日：" + date.getDate());newLine();
+        document.write("星期：" + date.getDay());newLine();
+        document.write("时：" + date.getHours());newLine();
+        document.write("分：" + date.getMinutes());newLine();
+        document.write("秒：" + date.getSeconds());newLine();
+        document.write("毫秒：" + date.getMilliseconds());newLine();
+        document.write("距离1900的年数：" + date.getYear());newLine();
+
+        document.write("-----------设置时间-----------");newLine();
+        //时间的设置API
+        document.write("年：" + date.setFullYear(9999));newLine();
+        // 月份 0-11 0表示1月
+        document.write("月：" + date.setMonth(11));newLine();
+        document.write("日：" + date.setDate(31));newLine();
+        document.write("时：" + date.setHours(23));newLine();
+        document.write("分：" + date.setMinutes(59));newLine();
+        document.write("秒：" + date.setSeconds(59));newLine();
+        document.write("毫秒：" + date.setMilliseconds(999));newLine();
+        document.write("设置后的时间：" + date);newLine();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

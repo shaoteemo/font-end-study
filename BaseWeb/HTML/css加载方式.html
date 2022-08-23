@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引用外部样式 -->
+    <link rel="stylesheet" href="../CSS/outer_style（css加载方式）.css">
+    <!-- 内部样式 -->
+    <style>
+        .p{
+            color: darkblue;
+            font-size: 50px;
+            background-color: aqua;
+        }
+    </style>
+
+    <style type="text/css">
+        /* 导入式。不推荐 */
+        @import url(../CSS/outer_style（css加载方式）.css);
+    </style>
+</head>
+<body>
+
+    <!-- 内联样式 -->
+    <p style="color: red; font-size: 50px;">创建页面，在页面上完成视频与音频的播放</p>
+
+    <p class="p">创建页面，在页面上完成视频与音频的播放</p>
+</body>
+</html>

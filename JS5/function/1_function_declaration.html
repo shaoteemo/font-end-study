@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        /*函数的声明*/
+        function print(message) {
+            document.write(message);
+        }
+
+        function add(x, y) {
+            console.log(x + y);
+        }
+
+        // add(3 ,5); //函数名提升
+        //
+        // print("Hello World!");
+
+        // print2();  //error
+        /*函数声明2：使用function声明函数（赋值函数没有变量提升，提前调用会报错。）*/
+        var print2 = function (message) {
+            document.write(message);
+        }
+
+        // print2("Test 2");
+
+        /*函数声明3：使用构造函数*/
+        var add2 = new Function('x', 'y', 'return x + y');
+
+        /*相同命名的函数会被覆盖,上面的调用也会被下面的函数覆盖（函数提升:JS在解析的时候会把函数声明到最上面）*/
+        function add(message) {
+            document.write(message);
+        }
+
+        // add("Hello World!");
+
+        //根据ES5的规范以下方式不建议申明函数。(非函数代码块中声明函数。)
+        if (true){
+            function test(){
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

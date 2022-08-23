@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Math相关的计算API</title>
+    <script src="../constants.js"></script>
+    <script>
+        /*Math中的常量值。虽然可以通过赋值符变更但不符合常规。*/
+        document.write(Math.E + "");newLine();
+        document.write(Math.PI + "");newLine();
+
+        function circleArea(r){
+            return Math.PI * Math.pow(r , 2);
+        }
+
+        document.write("圆的面积：");
+        document.write(circleArea(10));newLine();
+
+        /*常用的静态方法*/
+        // 绝对值
+        document.write("绝对值abs：" + Math.abs(-123));newLine();
+        // 最大值最小值
+        document.write("最大值max：" + Math.max(1,2,3,65,4324,543,-2));newLine();
+        document.write("最小值min：" + Math.min(1,2,3,65,4324,543,-2));newLine();
+        document.write("最小值min：" + Math.min());newLine();
+        document.write("最大值max：" + Math.max());newLine();
+        document.write("数组中的最大值：" + Math.max.apply(null , [1,2,3,65,4324,543,-2]));newLine();
+        document.write("数组中的最小值：" + Math.min.apply(null , [1,2,3,65,4324,543,-2]));newLine();
+        // 向下向上取整
+        document.write("向上取整：" + Math.ceil(22.1));newLine();
+        document.write("向下取整：" + Math.floor(22.1));newLine();
+
+        // 四舍五入
+        document.write("四舍五入：" + Math.round(0.51));newLine();
+        // 平方根
+        document.write("开方：" + Math.sqrt(4));newLine();
+        // 对数计算
+        document.write("对数计算：" + Math.log(9));newLine();
+        // 常数e的参数次方
+        document.write("e的参数次方：" + Math.exp(1));newLine();
+        // 随机数
+        document.write("随机数(5-10)：" + Math.ceil((Math.random() * (10 - 5) + 5)));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

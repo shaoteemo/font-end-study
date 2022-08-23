@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 400px;
+            height: 140px;
+            background-color: #f1f1f1;
+            border: 1px solid greenyellow;
+            border-radius: 10px;
+        }
+
+        div>p{
+            padding: 5px;
+            /* 使用多列 */
+            column-count: 3;
+            /* 列与列之间的间隙 */
+            column-gap: 10px;
+            /* column-rule-width: 3px;
+            column-rule-color: aqua;
+            column-rule-style: solid; */
+            /* 这一句等同于上面注释的三个属性 */
+            column-rule: 2px dashed rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Vscode刚刚更新，emment这个扩展可能取消了用感叹号“！”自动生成html模板的功能，也默认关闭了按`!+Tab`自动生成html模板的功能。还有某一个标签想生成多个，例如：br*3的这种快捷操作该如何重新打开？</p>
+    </div>
+</body>
+</html>

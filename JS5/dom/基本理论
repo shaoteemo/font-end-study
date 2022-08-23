@@ -1,0 +1,21 @@
+节点7大类型：
+1.Document：整个文档树的顶层节点
+2.DocumentType：doctype标签
+3.Element：网页的各种HTML标签
+4.Attribute：网页元素的属性（比如class="right"）
+5.Text：标签之间或标签包含的文本
+6.Comment：注释
+7.DocumentFragment：文档的片段
+
+节点间的关系：
+除了根节点，其他节点都有三种层级关系：
+    1.父节点关系：直接的哪个上级节点
+    2.子节点关系：直接的下级节点
+    3.同级节点关系：拥有相同一个父节点的节点
+
+Node.nodeType属性
+    1.文档节点（document）：9，=> Node.DOCUMENT_NODE
+    2.元素节点（element）：1，=>Node.ELEMENT_NODE
+    3.属性节点（Attr）：2，=>Node.ATTRIBUTE_NODE
+    4.文本节点（text）：3，=>Node.TEXT_NODE
+    5.文档片段节点（DocumentFragment）：11，=>Node.DOCUMENT_FRAGMENT_NODE

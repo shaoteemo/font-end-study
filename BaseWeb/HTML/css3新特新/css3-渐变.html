@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 5px;
+        }
+        .gradient{
+            height: 100px;
+            width: 100px;
+            /* 使用渐变 */
+            /* 
+                常规使用
+                    1.第一个值可以设置渐变方向 : to right/left/top/bottom 默认to bottom
+             */
+            background: linear-gradient(to left , red , blue);
+        }
+
+        /* 对角 */
+        .div1{
+            height: 100px;
+            width: 100px;
+            background: linear-gradient(to right bottom , green , yellow);
+        }
+
+        /* 
+            使用角度
+                总共角度为180°
+        */
+        .div2{
+            height: 100px;
+            width: 100px;
+            background: linear-gradient(-135deg , green , yellow);
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient"></div>
+    <div class="div1"></div>
+    <div class="div2"></div>
+</body>
+</html>

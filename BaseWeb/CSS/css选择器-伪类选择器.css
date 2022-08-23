@@ -1,0 +1,102 @@
+/* 适用于A标签的伪类 */
+/* 默认颜色(仅适用于A标签) */
+a:link{
+    color: red;
+}
+
+/* 访问之后(仅适用于A标签) */
+a:visited{
+    color: yellow;
+}
+
+/* 悬停(适用于所有标签) */
+a:hover{
+    color: rebeccapurple;
+}
+
+.div-1{
+    width: 300px; 
+    height: 300px;
+    background-color: aqua;
+}
+
+.div-1:hover{
+    background-color: rebeccapurple;
+}
+
+/* 点击(适用于所有标签) */
+a:active{
+    color: green;
+}
+
+.div-1:active{
+    background-color: orange;
+}
+
+/* 模拟按钮 */
+.span1{
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    color: azure;
+    background-color: grey;
+}
+
+.span1:hover{
+    background-color: orange;
+}
+
+.span1:active{
+    background-color: red;
+}
+
+/* 以上这些属性有顺序  */
+
+/* 匹配其父元素中的第一个子元素 */
+.ul1 li:first-child{
+    color: red;
+}
+
+/* 匹配父元素中的最后一个元素 */
+.ul1 li:last-child{
+    color: orange;
+}
+
+/* 匹配父元素中的第N个子元素，元素类型没有限制 */
+.ul1 li:nth-child(2){
+    color: green;
+}
+/* 奇偶匹配 */
+.ul2 li:nth-child(odd){
+    color: orange;
+}
+.ul2 li:nth-child(even){
+    color: chartreuse;
+}
+
+/* 匹配属于父元素中唯一子元素的元素 */
+div p:only-child{
+    color: chocolate;
+}
+
+/* 没有任何子元素生效(包括文本节点) */
+p:empty{
+    height: 30px;
+    background-color: aqua;
+}
+
+/* 选择器匹配每个元素是不是指定的元素/选择器 */
+div :not(p){
+    font-size: 40px;
+}
+
+/* 选择具有焦点的元素 */
+input:focus{
+    background-color: deeppink;
+}
+
+/* 匹配每一个被选中的元素（仅适用于单选或复选） */
+input:checked{
+    width: 10px;
+    height: 10px;
+}

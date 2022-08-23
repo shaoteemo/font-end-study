@@ -1,0 +1,25 @@
+
+table , td{
+    border: 1px solid greenyellow;
+    border-collapse: collapse;
+}
+
+table{
+    width: 100%;
+    height: 500px;
+}
+
+td{
+    /* 文本内容位置 */
+    text-align: center;
+    /* 垂直位置 */
+    vertical-align: center;
+    /* 表格填充 */
+    padding: 30px;
+
+    /* 背景颜色 */
+    background-color: antiquewhite;
+
+    /* 字体颜色 */
+    color: dodgerblue;
+}

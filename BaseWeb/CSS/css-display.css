@@ -1,0 +1,73 @@
+/* 
+    display属性：
+        1.可以改变元素类型
+        2.可以隐藏元素。不保留位置
+    元素分类：
+        1.块级元素
+        2.行内元素
+        3.行内块级元素
+*/
+
+.box1{
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+    /* 隐藏元素 */
+    display: none;
+}
+
+.a{
+    width: 300px;
+    height: 200px;
+    background-color: aqua;
+    /* 行内元素转块级元素 */
+    display: block;
+}
+
+.title{
+    background-color: aquamarine;
+    /* 块级元素转内联元素 */
+    display: inline;
+}
+
+span{
+    width: 100px;
+    height: 100px;
+    background-color: bisque;
+
+    /* 变为行内块级元素 */
+    display: inline-block;
+}
+
+/* 元素隐藏方式 */
+.div1{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    /* 这种方式不会保留位置 */
+    display: none;
+}
+
+.div2{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    /* 隐藏但位置保留 */
+    visibility: hidden;
+}
+
+.div3{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    /* 隐藏但位置保留 */
+    opacity: 0;
+}
+
+.div4{
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    /* 隐藏超出的部分 */
+    overflow: hidden;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        指定绝对定位、固定定位堆叠顺序。全部相对定位(relative)则没有，因为不脱离文档流。
+     -->
+    <style>
+        .test1 , .test2{
+            width: 100px;
+            height: 100px;
+        }
+
+        .test1{
+            background-color: green;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            /* 指定堆叠顺序 数值越大越在上 */
+            z-index: 2;
+        }
+
+        .test2{
+            background-color: greenyellow;
+            position: absolute;
+            left: 105px;
+            top: 105px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="test1"></div>
+    <div class="test2"></div>
+</body>
+</html>

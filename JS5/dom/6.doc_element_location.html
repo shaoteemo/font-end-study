@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Element获取元素位置</title>
+    <style>
+        #title {
+            margin: 9px;
+            padding: 20px;
+            border: 3px solid greenyellow;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+            /*
+            * clientHeight与clientWidth
+            * 这两个属性只对原生为块级元素生效，行内元素返回0
+            * 高度宽度包含 padding（内边距），不包含border（边框）、margin（外边距）
+            * */
+            let title = document.getElementById("title");
+            console.log("元素总宽度：" + title.clientWidth);
+            console.log("元素总高度：" + title.clientHeight);
+
+            // 获取视口的高度
+            let clientHeight = document.documentElement.clientHeight;
+            console.log("视口的高度：" + clientHeight);
+
+            // 获取网页总高度
+            let bodyHeight = document.body.clientHeight;
+            console.log("网页总高度：" + bodyHeight);
+
+            /*
+            * clientLeft与clientTop
+            * 这两个属性分别获取元素节点左边框和顶部边框高度（px）。不包括padding ， margin
+            * 如果没有边框或者为行内元素则返回0
+            * 此方法永远返回整数小数1则四舍五入
+            * */
+            console.log("左边框：" + title.clientLeft);
+            console.log("顶部边框高度：" + title.clientTop);
+
+            /*
+            * scrollHeight与scrollWidth
+            * 获取当前元素总高度与总宽度。包括padding、溢出的不可见内容，不包括margin、border、水平或垂直滚动条宽高。
+            *
+            * */
+            console.log("元素总高度：" + title.scrollHeight);
+            console.log("元素总宽度：" + title.scrollWidth);
+
+        }
+
+    </script>
+</head>
+<body>
+<h1 class="title" id="title">有ID的标签</h1>
+</body>
+</html>

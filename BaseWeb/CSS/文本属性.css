@@ -1,0 +1,37 @@
+.text1{
+    text-align: left;
+    /* 下划线 */
+    text-decoration: underline;
+}
+
+.text2{
+    text-align: center;
+    /* 中划线 */
+    text-decoration: line-through;
+}
+
+.text3{
+    text-align: right;
+    /* 上划线 */
+    text-decoration: overline;
+}
+
+.text4{
+    /* 首字母大写 */
+    text-transform: capitalize;
+}
+
+.text5{
+    /* 全大写 */
+    text-transform: uppercase;
+}
+
+.text6{
+    /* 全小写 */
+    text-transform: lowercase;
+}
+
+.text7{
+    /* 缩进 */
+    text-indent: 50px;
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        const BR_TAG = "<br>";
+        /*冒泡排序*/
+        function sort(array){
+            if (!Array.isArray(array)) {
+                document.write("Is Not Array");
+                return [];
+            }
+            for(let i = 0 ; i < array.length - 1; i ++){
+                for(let j = i ; j < array.length - 1 ; j ++){
+                    let temp ;
+                    if(array[i] > array[j + 1]){
+                        temp = array[i];
+                        array[i] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+            return array;
+        }
+
+        /*实现某个数的阶乘*/
+        function factorial(number){
+            if (!Number(number)){
+                document.write(BR_TAG + "阶乘算法：不是一个有效数字 -> " + number )
+                return 0;
+            }
+            if (number <= 1) return number;
+            return number * factorial(number -1) ;
+        }
+
+        {
+            /*冒泡测试*/
+            const array = [10, 1, 2, 34, 5, 9, 6, 2, 3, 8, 9, 5, 7, 12, 0, 123456];
+
+            console.log(sort(0));
+
+            console.log("排序后的数组：" + sort(array));
+        }
+
+        {
+            /*阶乘测试*/
+            console.log("阶乘测试：" + factorial("5"));
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

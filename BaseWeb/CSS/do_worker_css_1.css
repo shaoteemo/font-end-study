@@ -1,0 +1,30 @@
+.container{
+    width: 500px;
+    height: 500px;
+}
+
+.pink,.blue{
+    width: 250px;
+    height: 250px;
+}
+
+.pink{
+    background-color: rgb(255 198 202);
+}
+
+.blue{
+    background-color: rgb(52 207 212);
+}
+
+.left{
+    width: 250px;
+    height: 500px;
+    float: left;
+}
+
+.right{
+    width: 250px;
+    height: 500px;
+    float: right;
+    background-color: rgb(226 184 134);
+}
