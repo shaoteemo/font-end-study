@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Element对象方法</title>
+    <style>
+        #container{
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            padding: 10px;
+            background-color: black;
+            border: 2px dashed greenyellow;
+        }
+    </style>
+    <script>
+        window.onload = function (){
+            //给文本框默认焦点
+            let userName = document.getElementById("username");
+            userName.focus();
+            //失去焦点
+            userName.blur();
+
+            //从元素父节点移除当前元素
+            userName.remove();
+
+            //获取当前元素的节点大小、位置等信息。基本上就是CSS的盒子模型所有信息
+            /**
+             * x：元素左上角相对于视口的横坐标
+             * y：元素左上角相对于视口的纵坐标
+             * height：元素高度
+             * width：元素宽度
+             * left：元素左上角相对于视口的横坐标，与x属性相等
+             * right：元素右边界相对于视口的横坐标（等于x + width）
+             * top：元素顶部相对于视口的纵坐标，与y属性相等
+             * bottom：元素底部相对于视口的纵坐标（等于y + height）
+             * @type {HTMLElement}
+             */
+            let container = document.getElementById("container");
+            console.log(container.getBoundingClientRect());
+
+        }
+    </script>
+</head>
+<body>
+<label for="username">用户名：</label><input type="text" name="username" id="username" placeholder="用户名"/>
+<div id="container"></div>
+</body>
+</html>

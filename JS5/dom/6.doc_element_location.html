@@ -54,11 +54,45 @@
             console.log("元素总高度：" + title.scrollHeight);
             console.log("元素总宽度：" + title.scrollWidth);
 
+            /*
+            * scrollLeft与scrollTop
+            * 获取当前元素水平滚动条与垂直滚动条的像素数量。
+            * 没有滚动条为0
+            * */
+            //用户行为接入称为事件。
+            //添加滚动事件
+            window.addEventListener("scroll" , function (){
+                //滚动高度/宽度指的是从滚动条顶端/左端至滚动条最开始/最左端的起始距离
+                console.log("元素水平滚动条向右素数量：" + document.documentElement.scrollLeft);
+                console.log("元素垂直滚动条向下素数量：" + document.documentElement.scrollTop);
+            })
+
+            /**
+             * offsetHeight与offsetWidth
+             *
+             * 元素的CSS（垂直高度/水平宽度）。包括元素本身的高度、padding、border
+             *
+             */
+            console.log("元素的CSS垂直高度：" + title.offsetHeight);
+            console.log("元素的CSS水平宽度：" + title.offsetWidth);
+
+            /**
+             * offsetLeft与offsetTop
+             *
+             * 至定位父级（左边界/上边界）的距离
+             *
+             */
+            console.log("至定位父级左边界：" + title.offsetLeft);
+            console.log("至定位父级上边界：" + title.offsetTop);
+
         }
 
     </script>
 </head>
 <body>
+<h1 class="title" id="title">有ID的标签</h1>
+<h1 class="title" id="title">有ID的标签</h1>
+<h1 class="title" id="title">有ID的标签</h1>
 <h1 class="title" id="title">有ID的标签</h1>
 </body>
 </html>
