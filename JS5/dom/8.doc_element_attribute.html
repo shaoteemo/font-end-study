@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性操作</title>
+    <script>
+        window.onload = function (){
+            let userName = document.getElementById("username");
+            //获取属性
+            console.log(userName.getAttribute("type"));
+            //设置属性
+            userName.setAttribute("title" , "on off test");
+            //判断是否存在某个属性
+            console.log(userName.hasAttribute("title"));
+            console.log(userName.hasAttribute("class"));
+            //移除属性
+            userName.removeAttribute("title");
+
+            //dataset属性。一般用于自定义属性格式：data-*
+                //设置值
+            userName.dataset.shaoteemo = "shaoteemo";
+            //获取值
+            console.log(userName.dataset.shaoteemo);
+
+        }
+    </script>
+</head>
+<body>
+<label for="username">用户名：</label><input type="text" name="username" id="username" placeholder="用户名"/>
+<div id="container"></div>
+</body>
+</html>

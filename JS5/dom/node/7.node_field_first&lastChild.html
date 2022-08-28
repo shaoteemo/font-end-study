@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function (){
+
+            /*如果不存在返回null*/
+
+            //firstChild
+            let p = document.querySelector("p");
+            //获取父元素
+            let div = p.parentNode;
+            //获取第一个子元素
+            console.log(div.firstChild); // #text 换行后就变成了文本
+
+            //lastChild
+            console.log(div.lastChild);// #text
+
+            //过滤换行
+            console.log(div.firstChild.nextSibling);
+
+        }
+    </script>
+</head>
+<body>
+<div id="root">
+    <p>这是第一个文本节点。</p>
+    <p>这是第二个文本节点。</p>
+    <p>这是第三个文本节点。</p>
+</div>
+</body>
+</html>

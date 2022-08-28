@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Node节点属性_nodeName</title>
+    <script>
+        /**
+         * 文档节点（document）：#document
+         * 元素节点（element）：大写的标签名
+         * 属性节点（attr）：属性的名称
+         * 文本节点（text）：#text
+         * 文档片断节点（DocumentFragment）：#document-fragment
+         * 文档类型节点（DocumentType）：文档的类型
+         * 注释节点（Comment）：#comment
+         */
+        window.onload = function (){
+            //文档节点
+            console.log(document.nodeName); //#document
+
+            let container = document.querySelector("#container");
+            //元素节点
+            console.log(container.nodeName);
+            //获取属性名
+            let id = container.getAttribute("id");
+            //获取属性的Node节点
+            let idNode = container.getAttributeNode("id");
+            console.log(id);
+            console.log(idNode.nodeName + ":" + idNode.nodeValue + ":文档类型：" + idNode.nodeType);
+
+            //文本节点
+            console.log(container.firstChild.nodeName);  //#text
+
+            //fragment
+            let fragment = document.createDocumentFragment();
+            let div2 = document.createElement("div");
+            let text = document.createTextNode("这是第二个用JS创建的DIV");
+            div2.appendChild(text);
+            fragment.appendChild(div2);
+            document.querySelector("body").appendChild(fragment);
+
+            //获取fragment名称
+            console.log(fragment.nodeName); //#document-fragment
+
+        }
+    </script>
+</head>
+<body>
+
+<div id="container">我是DIV</div>
+
+</body>
+</html>

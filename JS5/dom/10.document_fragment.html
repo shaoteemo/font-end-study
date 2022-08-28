@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DocumentFragment</title>
+    <script>
+        /*DocumentFragment用于提高效率*/
+        window.onload = function (){
+            //使用DocumentFragment创建节点并填充
+            let fragment = document.createDocumentFragment();
+            let li = document.createElement("li");
+            li.innerHTML = "测试列表";
+            fragment.append(li);
+            let ul = document.getElementsByTagName("ul")[0];
+            ul.appendChild(fragment);
+        }
+    </script>
+</head>
+<body>
+<ul>
+
+</ul>
+</body>
+</html>

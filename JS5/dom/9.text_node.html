@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Text节点</title>
+    <script>
+        /*Text节点包含：属性的文本信息以及标签中的文本信息*/
+        window.onload = function (){
+            let title = document.querySelector("#title").firstChild;
+            //获取纯文本信息。这位里面必须是纯文本才可以
+            console.log(title.data);
+            //修改文本信息
+            title.data = "这是一个DIV!";
+            //获取文本节点长度
+            console.log(title.length);
+
+            /*下面是节点方法*/
+            //追加字符串
+            title.appendData("@@@");
+            //删除文本节点信息(位置（1开始），删除几个)
+            title.deleteData(8,1);
+            //追加文本信息(位置，内容)
+            title.insertData(title.length , "AAAAA");
+            //替换文本数据(位置，替换的长度，内容)
+            title.replaceData(12 , 3 ,"BBBB");
+            //截取文本
+            console.log(title.substringData(12 , 2));
+            //移除当前文本节点。内部有标签的节点不会被清除，标签后面的文本节点也不会被清除。
+            title.remove();
+        }
+    </script>
+</head>
+<body>
+<div id="title">这是一个DIV</div>
+</body>
+</html>

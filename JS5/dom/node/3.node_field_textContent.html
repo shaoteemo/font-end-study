@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Node节点属性_textContent</title>
+    <script>
+        window.onload = function (){
+            let container = document.getElementById("container");
+            //获取节点中的后代的文本节点(很重要，工作中常用)
+            console.log(container.textContent);
+
+        }
+    </script>
+</head>
+<body>
+
+<div id="container">我是DIV <h1>H1中的内容</h1> !!!</div>
+
+</body>
+</html>

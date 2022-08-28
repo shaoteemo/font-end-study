@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function (){
+            let container = document.getElementById("container");
+            /*
+            *返回紧跟在当前节点的第一个 同级节点 如果没有返回Null
+            *注意换行会导致读取的节点与预想的不一致
+            * */
+            console.log(container.nextSibling)
+
+            console.log("========================================")
+
+            /*应用：遍历所有子节点*/
+            let root = document.getElementById("root");
+            //获取一个子节点
+            let firstChild = root.firstChild;  //此处获取的是换行的 #text 节点
+            // console.log(firstChild.nextSibling)
+            while (firstChild !== null){
+                let nextSibling = firstChild.nextSibling;
+                if (nextSibling !== null && nextSibling.nodeType !== Node.TEXT_NODE){
+                    console.log(nextSibling);
+                }
+                firstChild = firstChild.nextSibling;
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="container">我是DIV <h1>H1中的内容</h1> !!!</div>
+<div id="root">
+    <p>这是第一个文本节点。</p>
+    <p>这是第二个文本节点。</p>
+    <p>这是第三个文本节点。</p>
+</div>
+</body>
+</html>
