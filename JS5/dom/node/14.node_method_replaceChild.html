@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function (){
+            let source = document.querySelector("#content2");
+
+            //创建一个替换节点
+            let target = document.createElement("h1");
+            target.innerText = "Replace node content!";
+
+            //替换子节点
+            let replaceChild = source.parentNode.replaceChild(target ,source);
+
+            console.log(replaceChild);
+
+        }
+    </script>
+</head>
+<body>
+<div id="root">
+    <p>这是第一个文本节点。</p>
+    <p id="content2">这是第二个文本节点。</p>
+    <p>这是第三个文本节点。</p>
+</div>
+</body>
+</html>

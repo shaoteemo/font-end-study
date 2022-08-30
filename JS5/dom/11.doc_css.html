@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function (){
+            //操作css
+            /*使用setAttribute*/
+            let title = document.getElementById("title");
+            title.setAttribute("style" , "color: red;");
+
+            /*使用style属性*/
+            let titleStyle = title.style;
+            //设置颜色
+            titleStyle.color = "#6718a6";
+            //设置宽度
+            titleStyle.width = '300px';
+            //设置边框
+            titleStyle.border = '1px solid red';
+            titleStyle.display = "inline-block"
+            //字体大小
+            titleStyle.fontSize = '30px';
+
+            /*使用cssText属性*/
+            let title2 = document.getElementById("title2");
+
+            title2.style.cssText = 'color: red;' + 'border: 1px solid red';
+
+        }
+    </script>
+</head>
+<body>
+<h1 id="title">This title.</h1>
+<h1 id="title2">This title.</h1>
+</body>
+</html>

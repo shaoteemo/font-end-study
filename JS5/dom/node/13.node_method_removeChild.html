@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function (){
+            let root = document.querySelector("#root");
+            //移除子节点
+            let text = root.firstChild;
+            let removeChild = root.removeChild(text);
+            console.log(removeChild);
+
+            //批量删除子节点
+            let childNodes = root.childNodes;
+            let nodeLength = childNodes.length;
+
+            for (let i = 0; i < nodeLength; i++) {
+                //没删除一个元素。后面的就会补齐
+                root.removeChild(childNodes[0]);
+            }
+            //上面的优化
+            /*childNodes.forEach(item => {
+                root.removeChild(item);
+            })*/
+
+        }
+    </script>
+</head>
+<body>
+<div id="root">
+    <p>这是第一个文本节点。</p>
+    <p id="content2">这是第二个文本节点。</p>
+    <p>这是第三个文本节点。</p>
+</div>
+</body>
+</html>
