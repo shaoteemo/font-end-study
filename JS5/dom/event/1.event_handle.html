@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件处理程序</title>
+    <!--<style>
+        button{
+            border: 0;
+        }
+    </style>-->
+    <script>
+        let notice;
+        window.onload = function (){
+            notice = document.getElementById("notice");
+
+            let dom0 = document.getElementById("dom0");
+
+            let dom2 = document.getElementById("dom2");
+
+            /*DOM0级别处理*/
+            dom0.onclick = function (){
+                publicMethod(notice , "提交DOM0级别处理成功");
+            }
+
+            /*DOM0级事件移除*/
+            // dom0.onclick = null;
+
+                /*DOM2级处理*/
+            dom2.addEventListener("click" , function (){
+                publicMethod(notice , "提交DOM2级别处理成功");
+            });
+            //不会覆盖上面的事件
+            dom2.addEventListener("click", dom2Handle);
+            /*DOM2级事件移除。需要单独抽离函数与添加事件使用同一个函数*/
+            // dom2.removeEventListener("click",dom2Handle);
+
+            function dom2Handle(){
+                let btn3Style = dom2.style;
+                btn3Style.border = "1px solid green";
+            }
+
+        }
+
+        /*HTML级别事件*/
+        function submit(){
+            publicMethod(notice , "提交HTML处理成功");
+        }
+
+        /*Html事件移除方式*/
+        /*function submit(){
+
+        }*/
+
+        function publicMethod(notice , message){
+            // alert("提交成功");
+            notice.innerText = message;
+            let styleNotice = notice.style;
+            styleNotice.marginLeft = "20px";
+            styleNotice.color = "green";
+        }
+
+        /*
+        * IE实现了与DOM中类似的两个方法：attachEvent()和detachEvent()
+        * */
+    </script>
+</head>
+<body>
+<div>
+    <!--注意使用window.onload预加载会导致函数绑定失败-->
+    <button onclick="submit()">提交HTML处理</button>
+    <!--此方式需要window.onload预加载后使用或将script写在文档元素之后-->
+    <button id="dom0">提交DOM0级别处理</button>
+    <button id="dom2">提交DOM2级别处理</button>
+</div>
+<span id="notice"></span>
+</body>
+</html>
+<!--
+    小结：
+        HTML事件处理：
+            优点：书写方便
+            缺点：HTML与JS不分离。耦合度高。
+        DOM0：
+            优点：HTML与JS分离
+            缺点：事件会被覆盖。前面的代码会被后面的代码事件覆盖。
+        DOM2：
+            优点：HTML与JS分离并且事件不会被覆盖。
+            缺点：书写复杂。
+-->
