@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件流</title>
+    <!--描述从页面接收事件的顺序。一般描述子父级关系时间顺序。-->
+    <script>
+
+        window.onload = function (){
+            /*事件冒泡（IE事件流。常规）：从目标子级元素依次至父级元素*/
+            let box = document.querySelector("#box");
+            let text = document.querySelector("#text");
+            let content = document.querySelector("#content");
+            box.onclick = function (){
+                console.log("It's element DIV");
+            };
+
+            text.onclick = function (){
+                console.log("It's element P");
+            };
+
+            content.onclick = function (){
+                console.log("It's element SPAN");
+            };
+
+            /*事件捕获（Netscape事件流）：从父级元素依次至目标子级元素*/
+            let box2 = document.querySelector("#box2");
+            let text2 = document.querySelector("#text2");
+            let content2 = document.querySelector("#content2");
+            //事件捕获只能使用DOM2级事件处理
+            //DOM2级事件默认为事件冒泡。需要传递一个参数改变。
+            box2.addEventListener("click" , function (){
+                console.log("It's element DIV");
+            }, true);
+
+            text2.addEventListener("click" , function (){
+                console.log("It's element P");
+            }, true);
+
+            content2.addEventListener("click" , function (){
+                console.log("It's element SPAN");
+            }, true);
+
+        }
+    </script>
+</head>
+<body>
+<h3>点击下面的内容以获取效果</h3>
+<div id="box">
+    <p id="text">事件冒泡（IE事件流）。<span id="content">SPAN</span></p>
+</div>
+
+<div id="box2">
+    <p id="text2">事件冒泡（Netscape事件流）。<span id="content2">SPAN</span></p>
+</div>
+</body>
+</html>

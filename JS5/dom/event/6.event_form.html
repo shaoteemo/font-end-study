@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>表单事件</title>
+    <!--
+        表单事件是在使用表单元素及输入框元素可以监听的一系列事件
+            input事件
+            select事件
+            Change事件
+            reset事件
+            submit事件
+    -->
+    <script>
+        window.onload = function (){
+            let search = document.getElementById("search");
+            let select = document.getElementById("select");
+            //input事件适用于文本框、文本域等。
+            search.oninput = function (event){
+                //每次输入都会监听到
+                console.log("用户输入了文本:" + event.target.value);
+            }
+
+            //select事件。文本选中事件：CTRL+A或鼠标操作等
+            search.addEventListener("select" , function (event){
+                console.log("选择了一个值：" + event.target.value);
+            });
+
+            //change事件。当内容发生变化失去焦点、回车等会触发此事件。
+            select.onchange = function (event){
+                console.log("变更了值：" + event.target.value);
+            }
+
+            //reset事件与submit事件
+            let form = document.getElementById("form");
+            let reset = document.getElementById("rest");
+            let submit = document.getElementById("sub");
+
+            /*注意由于reset与submit的特殊性，id、name等尽量避免使用此类词汇。*/
+            reset.onclick = function (){
+                console.log("重置触发。");
+                //重置表单数据
+                form.reset();
+            }
+
+            submit.onclick = function (){
+                //提交表单数据
+                form.submit();
+            }
+
+        }
+    </script>
+</head>
+<body>
+<form id="form">
+    <label>搜索：
+        <input type="text" id="search">
+    </label>
+    <br>
+    <label>
+        请选择：
+        <select name="select" id="select">
+            <option>Java</option>
+            <option>Python</option>
+            <option>C/C++</option>
+            <option>Ruby</option>
+        </select>
+    </label>
+    <br>
+    <label>
+        <input id="rest" type="button" value="重置">&nbsp;
+        <input id="sub" type="button" value="提交">
+    </label>
+</form>
+<!--<button id="rest">重置</button>
+<button id="sub">提交</button>-->
+</body>
+</html>

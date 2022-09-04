@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网页状态事件</title>
+    <!--
+        用于网页资源或解析的加载事件
+    -->
+    <script>
+        window.onload = function (){
+            //场景一资源加载完成：加载大图片
+            let image = new Image(720); // 创建一个图片
+            image.src = "http://iwenwiki.com/api/livable/banner/banner2.png";
+            //完全加载玩后才触发
+            image.onload = function (){
+                console.log("图片加载完成");
+                document.body.appendChild(image);
+            }
+        }
+
+        /*由于与window.onload冲突因此提出来*/
+        //场景二Dom结构加载完成。
+        //只负责dom结构加载完成，网页中的其他资源（resource，css，js...）不会计算在内。
+        document.addEventListener("DOMContentLoaded" , function (){
+            console.log("网页结构树加载完成");
+        })
+
+        /*网络请求完成事件:onreadystatechange事件，见网络请求部分*/
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>焦点与剪切板事件</title>
+    <!--
+        焦点事件：
+            focus：元素节点获得焦点后触发，该事件不会冒泡。
+            blur：元素节点失去焦点后触发，该事件不会冒泡。
+            focusin：元素节点将要获得焦点时触发，发生在focus事件之前。该事件会冒泡。
+            focusout：元素节点将要失去焦点时触发，发生在blur事件之前。该事件会冒泡。
+    -->
+    <!--
+        剪切板事件：
+            cut：将选中的内容从文档中移除，加入剪贴板时触发。
+            copy：进行复制动作时触发。
+            paste：剪贴板内容粘贴到文档后触发。
+    -->
+    <script>
+        window.onload = function (){
+            let uname = document.getElementById("uname");
+
+            //获取焦点事件
+            uname.onfocus = function (event){
+                console.log("获取了焦点" , event);
+            }
+            //失去焦点事件
+            uname.onblur = function (event){
+                console.log("失去焦点" , event)
+            }
+
+            /*focus()与blur()方法*/
+            //默认获取焦点
+            uname.focus();
+            //默认失去焦点
+            uname.blur();
+
+            /*剪切板事件*/
+            //剪切事件
+            uname.oncut = function (event){
+                console.log("剪切事件");
+            }
+            //粘贴事件
+            uname.onpaste = function (){
+                console.log("粘贴事件");
+            }
+            //复制事件
+            uname.oncopy = function (event){
+                console.log("复制事件");
+                //阻止复制行为
+                event.preventDefault();
+            }
+
+            let btn = document.querySelector("button");
+            btn.onclick = function (event) {
+                let value = uname.value;
+                if (value){
+                    //复制文本至剪切板
+                    navigator.clipboard.writeText(value);
+                    document.body.appendChild(document.createTextNode("复制成功"))
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<label>
+    <input id="uname" type="text"> <button>复制</button>
+</label>
+</body>
+</html>

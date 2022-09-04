@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event事件对象</title>
+    <style>
+        button , a , div{
+            margin-bottom: 20px;
+        }
+        #box , #box2{
+            width: 300px;
+            height: 100px;
+            background-color: #e0e0e0;
+            text-align: center;
+            padding: 10px 0 0 0;
+        }
+        a{
+            display: inline-block;
+        }
+    </style>
+    <!--事件发生后会产生一个event事件对象并传递给监听函数-->
+    <script>
+        window.onload = function (){
+            let button = document.getElementById("btn");
+            /*Event对象属性*/
+            button.onclick = function (event){
+                console.log("Don't touch me!");
+
+                /**
+                 * currentTarget指向事件添加者
+                 */
+                console.log("事件当前所在的（监听）节点返回的是当前DOM元素(currentTarget)：")
+                console.log(event.currentTarget);
+
+                /*
+                * target属性返回原始出发事件的那个节点，即事件最初发生的节点。指向事件目标触发者
+                * */
+                console.log("事件当前所在的（监听）节点返回的是当前DOM元素(target)：")
+                console.log(event.target);
+
+                /**
+                 * 是什么事件就是什么事件字符串
+                 */
+                console.log("返回事件类型：")
+                console.log(event.type);
+            };
+
+            /*Event对象方法*/
+            let link = document.querySelector("#link");
+            link.onclick = function (event){
+                console.log("A element press!");
+                //阻止浏览器默认行为(此处为跳转)。几乎所有的事件都可以阻止如：复制粘贴...
+                event.preventDefault();
+            }
+
+            let box2 = document.querySelector("#box2");
+            let box2Btn = document.querySelector("#box2Btn");
+            box2.addEventListener("click" , function (){
+                console.log("box2");
+            });
+            box2Btn.addEventListener("click" , function (event){
+                console.log("box2Btn");
+                //阻止事件流传递
+                event.stopPropagation();
+            });
+        }
+    </script>
+</head>
+<body>
+<button id="btn">Click</button>
+<div id="box">
+    <button id="boxBtn">Click</button>:target与currentTarget区别
+</div>
+
+<a id="link" href="#" target="_blank">点我新开页面</a>
+
+<div id="box2">
+    <button id="box2Btn">阻止事件流（默认为事件冒泡）</button>
+</div>
+
+<script>
+    /*target与currentTarget*/
+    let box = document.getElementById("box");
+    let boxBtn = document.getElementById("boxBtn");
+    box.onclick = function (event){
+        console.log("Don't touch me!");
+        console.log("事件当前所在的（监听）节点返回的是当前DOM元素(currentTarget)：")
+        console.log(event.currentTarget);
+
+        console.log("事件当前所在的（监听）节点返回的是当前DOM元素(target)：")
+        console.log(event.target);
+    };
+</script>
+</body>
+</html>
