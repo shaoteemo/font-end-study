@@ -15,7 +15,7 @@
                 this.textContent = "What the Fuck?";
             }
 
-            //对象中的this：指向调用者
+            //对象中的this：永远指向调用者
             const username = "XiaoLi";
             let obj = {
                 username: "XiaoWang",
@@ -49,12 +49,12 @@
     <script>
         var name2 = "The Window";
         let object2 = {
-            name : "My Object",
+            name2 : "My Object",
             getNameFunc : function(){
-                let obj = this;
+                let obj = this;  // this指向被改变
                 return function(){
                     //此处指向object2
-                    return obj.name;
+                    return obj.name2;
                 };
             }
         };

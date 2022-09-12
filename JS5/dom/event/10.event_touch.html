@@ -1,1 +1,51 @@
-!
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Touch事件</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            background-color: #e0e0e0;
+        }
+    </style>
+    <!--
+        触摸事件(只能使用DOM2级处理)
+            touchstart：用户开始触摸时触发，它的target属性返回发生触摸的元素节点
+            touchend：用户不再接触触摸屏时触发
+            touchmove：用户移动触摸点时触发
+            touchcancel：系统取消touch事件的时候触发（使用率低）
+    -->
+    <script>
+        window.onload = function (){
+            let box = document.getElementById("box");
+            //触摸事件
+            box.addEventListener("touchstart" , function (){
+                console.log("触摸了屏幕");
+            });
+
+            //停止触摸
+            box.addEventListener("touchend" , function (){
+                console.log("触摸离开了屏幕");
+            });
+
+            //触摸移动
+            box.addEventListener("touchmove" , function (){
+                console.log("触摸滑动");
+            });
+
+            //由于此不好模拟。暂时使用window对象
+            window.addEventListener("touchcancel" ,function (){
+                console.log("系统取消touch事件");
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+</html>

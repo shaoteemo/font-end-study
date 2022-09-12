@@ -6,15 +6,116 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>函数闭包</title>
+
+    <!--
+        本节内容变量的声明方式（var ， let ， const）不同，结果也会不同
+    -->
     <script>
 
         //全局作用域：可以在任何地方访问（仅限于var）
         var username = "XiaoGang";
 
-        function t(){
+        function t() {
             //局部作用域：仅限于函数
             var temp = 2;
         }
+
+        //获取函数内部的值。变通，在内部增加一个函数（真是一种奇怪的方式，直接return不好吗）
+        //这种方式称为闭包。
+        function getNum() {
+            let num = 100;
+
+            function getNum() {
+                return num;
+            }
+
+            return getNum;
+        }
+
+        let result = getNum();
+        console.log(result());
+
+        /*
+        * 闭包特点：
+        *   1.读取函数内部中的变量
+        *   2.变量值始终保持在内存中
+        * */
+
+        /*实现一个函数中的变量累加*/
+        function num() {
+            let num = 100;
+
+            function add() {
+                num += 1;
+                console.log(num);
+            }
+
+            return add;
+        }
+
+        //内存中保存体现
+        let add = num();
+        add();
+        add();
+        add();
+
+    </script>
+
+    <script>
+        console.log("------------------------------闭包-------------------------------");
+
+        function getNum() {
+            var n = 100;
+            //全局作用域
+            nAdd = function () {
+                n += 1
+            }
+            console.log(n);
+        }
+
+        getNum(); // 100
+        nAdd();
+        getNum() // 100
+    </script>
+
+    <!--
+        闭包应用场景
+    -->
+    <script>
+        console.log("------------------------------闭包应用场景-------------------------------");
+
+        /*闭包var使用循环变量*/
+        function action() {
+            let arr = [];
+            //使用var结果与let不一致。var声明的变量会被下面相同的变量名覆盖。
+            for (var i = 1; i <= 3; i++) {
+                // for (let i = 1; i <= 3; i++) {
+                /*arr.push(function () {
+                    return i * i;
+                });*/
+                /*对于使用var时实现与let相同的效果的方式，逻辑：使用自执行函数保存原始变量*/
+                arr.push
+                (
+                    (
+                        function (num) {
+                            return function () {
+                                return num * num;  // 利用闭包保存变量
+                            }
+                        }(i)
+                    )
+                );
+            }
+            return arr;
+        }
+
+        let array = action();
+        //执行函数
+        let f1 = array[0];
+        let f2 = array[1];
+        let f3 = array[2];
+        console.log(f1());  // let i = 1 => 1 * 1   var i = 1 => 4 * 4
+        console.log(f2());  // let i = 2 => 2 * 2   var i = 2 => 4 * 4
+        console.log(f3());  // let i = 3 => 3 * 3   var i = 3 => 4 * 4
 
     </script>
 </head>

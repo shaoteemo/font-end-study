@@ -1,1 +1,37 @@
-!
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件代理（事件委托）</title>
+    <!--
+        由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件。
+        这种方法叫做事件的代理（delegation）
+
+        注意如果是动态添加，新加的子元素也会有点击事件。
+
+        原理：事件冒泡
+
+    -->
+    <script>
+        window.onload = function (){
+            let container = document.querySelector("#container");
+            container.onclick = function (event){
+                console.log(event.target.textContent);
+                //移除当前元素
+                event.currentTarget.removeChild(event.target);
+            }
+        }
+    </script>
+</head>
+<body>
+点击下面的标签试试：
+<div id="container">
+    <div>java</div>
+    <div>Python</div>
+    <div>C/C++</div>
+</div>
+</body>
+</html>

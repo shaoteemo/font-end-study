@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #e0e0e0;
+}
+
+.container{
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    margin: 100px auto;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+}
+
+.nav div{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.select {
+    border-bottom: 3px solid orange;
+}
+
+.content{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    text-align: center;
+}
+
+.container .content div{
+    line-height: 100px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+.container .content div:nth-child(1){
+    display: block;
+}
