@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this关键字</title>
+    <script>
+        window.onload = function () {
+            //事件中的this:指向触发此函数的元素
+            let button = document.getElementById("btn");
+            button.onclick = function (){
+                console.log(this.textContent);
+                this.textContent = "What the Fuck?";
+            }
+
+            //对象中的this：指向调用者
+            const username = "XiaoLi";
+            let obj = {
+                username: "XiaoWang",
+                func: function (){
+                    console.log("打印函数：" + this.username);
+                    console.log("打印函数：" + username);
+                }
+            };
+            obj.func();
+        }
+    </script>
+
+<!--    闭包中的this-->
+    <script>
+        var name = "The Window";
+        let object = {
+            name : "My Object",
+            getNameFunc : function(){
+                return function(){
+                    //闭包中的this永远指向window
+                    return this.name;
+                };
+            }
+        };
+
+        let result = object.getNameFunc();
+        let uname = result(); // => let uname = window.result();
+
+        console.log("闭包1=> :" + uname);
+    </script>
+    <script>
+        var name2 = "The Window";
+        let object2 = {
+            name : "My Object",
+            getNameFunc : function(){
+                let obj = this;
+                return function(){
+                    //此处指向object2
+                    return obj.name;
+                };
+            }
+        };
+
+        let result2 = object2.getNameFunc();
+        let uname2 = result2(); // => My Object
+
+        console.log("闭包2=> :" + uname2);
+    </script>
+</head>
+<body>
+<button id="btn">提交</button>
+</body>
+</html>
