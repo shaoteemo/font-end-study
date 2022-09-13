@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        JS加载会出现"阻塞效应"。浏览器在加载DOM时解析到script标签时会阻塞dom解析
+     -->
+     <!-- 
+        defer属性的运行流程如下
+            浏览器开始解析 HTML 网页
+            解析过程中，发现带有defer属性的<script>元素
+            浏览器继续往下解析 HTML 网页，同时并行下载<script>元素加载的外部脚本
+            浏览器完成解析 HTML 网页，此时再回过头执行已经下载完成的脚本
+      -->
+      <script src="//baidu.com" defer></script>
+
+      <!-- 
+        async属性的作用是，使用另一个进程下载脚本，下载时不会阻塞渲染
+            浏览器开始解析 HTML 网页
+            解析过程中，发现带有async属性的script标签
+            浏览器继续往下解析 HTML 网页，同时并行下载<script>标签中的外部脚本
+            脚本下载完成，浏览器暂停解析 HTML 网页，开始执行下载的脚本
+            脚本执行完毕，浏览器恢复解析 HTML 网页
+        
+        这种方式无法保证脚本执行顺序，先下载完先执行。推荐使用：defer
+       -->
+       <script src="//baidu.com" async></script>
+
+       <!-- 
+            一般来说，如果脚本之间没有依赖关系，就使用async属性，如果脚本之间有依赖关系，就使用defer属性。
+            如果同时使用async和defer属性，后者不起作用，浏览器行为由async属性决定
+        -->
+</head>
+<body>
+</body>
+</html>

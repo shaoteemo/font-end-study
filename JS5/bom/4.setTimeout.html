@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer>
+        let timer = window.setTimeout(function () {
+            console.log("test");
+        },5000);
+        
+        // this在不被改变的情况下，在定时器中指向window
+
+        var username  = "test-user";
+
+        var user = {
+            username: "object-name",
+            getName: function () {
+                window.setTimeout(function () {
+                    console.log(this.username);
+                } , 1000);
+            }
+        };
+        user.getName();
+
+        // 取消定时器
+        window.clearTimeout(timer);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

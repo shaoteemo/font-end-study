@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+    <script>
+        let id = window.setInterval(function () {
+            console.log("hello world");
+        }, 1000);
+    </script>
+    <script>
+        window.onload = function () {
+            let box = document.getElementById("box");
+            let opacity = 1;
+            let id = window.setInterval(function () {
+                opacity -= 0.05;
+                if (opacity <= 0) {
+                    // 清除定时器
+                    window.clearInterval(id);
+                    box.style.opacity = 0;
+                }else{
+                    box.style.opacity = opacity;
+                }
+            }, 300);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
