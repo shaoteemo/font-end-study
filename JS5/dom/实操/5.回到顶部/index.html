@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 500px;
+        }
+
+        #top-btn{
+            display: none;
+            width: 35px;
+            height: 45px;
+            position: fixed;
+            bottom: 120px;
+            right: 120px;
+            background-color: #333;
+            text-decoration: none;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            opacity: 0.5;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let backTop = document.getElementById("top-btn");
+
+            // 此处默认一个屏幕高度
+            let clientHeight = document.documentElement.clientHeight;
+            window.onscroll = function (event) {
+                // 获取滚动高度
+                let scrollTop = document.documentElement.scrollTop;
+                if (scrollTop > clientHeight * 2){
+                    backTop.style.display = 'block';
+                }else{
+                    backTop.style.display = 'none';
+                }
+            }
+
+            backTop.onclick = function () {
+                // 回到顶部
+                document.documentElement.scrollTop = 0;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+    <div>This is content container</div>
+
+    <!-- 让A标签失去href属性的效果 -->
+    <a href="javaScript:void(0)" id="top-btn">回到顶部</a>
+    
+</body>
+</html>
