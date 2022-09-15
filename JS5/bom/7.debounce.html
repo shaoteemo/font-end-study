@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖</title>
+    <!-- 对用频次较高的时间的优化 -->
+    <style>
+        .box {
+            height: 300px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            // {
+            //     /* 防抖只获取最后一次 */
+            //     var timer = null;
+            //     function debounce() {
+            //         if (timer) {
+            //             window.clearTimeout(timer);
+            //         }
+            //         timer = window.setTimeout(function () {
+            //             let scrollTop = document.documentElement.scrollTop;
+            //             console.log(scrollTop);
+            //         }, 100);
+            //     }
+
+            //     // 不防抖
+            //     /* window.onscroll = function () {
+            //         let scrollTop = document.documentElement.scrollTop;
+            //         console.log(scrollTop);
+            //     } */
+            //     // 防抖
+            //     window.onscroll = function () {
+            //         debounce();
+            //     }
+            // }
+
+            /* 以上代码的优化 */
+            function debounce(fun, delay) {
+                let timer; // 局部作用域不影响全局。对于闭包来说表现为内部全局作用域。
+                /* 闭包实现 */
+                return function () {
+                    if (timer) {
+                        window.clearTimeout(timer);
+                    }
+                    timer = window.setTimeout(fun, delay);
+                }
+            }
+
+            function backTop() {
+                let scrollTop = document.documentElement.scrollTop;
+                console.log(scrollTop);
+            }
+
+            /* 
+                事件机制
+                    即，事件函数在初始化时执行一次。函数体不断执行。下面的例子：执行一次 => debounce 。 函数体 => 闭包函数
+             */
+            window.onscroll = debounce(backTop , 100);
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+
+</html>
