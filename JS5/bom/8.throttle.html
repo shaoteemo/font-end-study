@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+    <style>
+        .box {
+            height: 300px;
+        }
+    </style>
+    <!-- 高频操作。每隔一定时间给予函数执行 -->
+    <script>
+        /* 使用延时实现 */
+        function throttle(fun, delay) {
+            var valid = true;
+
+            return function () {
+                if (!valid) {
+                    // 暂不处理本次请求
+                    return false;
+                }
+                valid = false;
+                window.setTimeout(function () {
+                    fun();
+                    valid = true;
+                }, delay)
+            }
+        }
+
+        window.onload = function () {
+            function backTop(params) {
+                let scrollHeight = document.documentElement.scrollTop;
+                console.log(scrollHeight);
+            }
+
+            window.onscroll = throttle(backTop, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+
+</html>
