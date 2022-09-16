@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        Cookie：存储在浏览器的一段文本信息。一般不能超过4kb。浏览器每次向服务器发送请求时会自动附上这些信息。
+        Cookie 的目的就是区分用户，以及放置状态信息，它的使用场景主要如下
+            对话（session）管理：保存登录状态、购物车等需要记录的信息；
+            个性化信息：保存用户的偏好，比如网页的字体大小、背景色等等；
+            追踪用户：记录和分析用户行为；
+
+        每个 Cookie 都有以下几方面的元数据
+            name：Cookie 的名字；
+            value：Cookie 的值（真正的数据写在这里面）；
+            expires：到期时间（超过这个时间会失效）；
+            domain：所属域名（默认为当前域名）；
+            path：生效的路径（默认为当前网址）；
+
+        不同浏览器对 Cookie 数量和大小的限制，是不一样的。
+        一般来说，单个域名设置的 Cookie 不应超过30个，每个 Cookie 的大小不能超过 4KB。
+        超过限制以后，Cookie 将被忽略，不会被设置
+     -->
+    <script>
+        // 获取cookie
+        console.log(document.cookie);
+    </script>
+
+    <!-- 
+        Cookie属性
+            Expires属性指定一个具体的到期时间，到了指定时间以后，浏览器就不再保留这个 Cookie。它的值是 UTC 格式，可以使用Date.prototype.toUTCString()进行格式转换。
+     -->
+</head>
+<body>
+    
+</body>
+</html>
