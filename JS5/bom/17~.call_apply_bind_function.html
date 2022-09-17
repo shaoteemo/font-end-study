@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        this指向：
+            1.事件中的this指向当前DOM元素；
+            2.对象中的this指向当前调用者；
+            3.闭包中的this指向window；
+            4.定时器中的this指向window；
+            5.call、apply、bind改变this指向；
+     -->
+    <script>
+        let user = {
+            band: "shaoteemo",
+            getBand: function (callArgs) {
+                console.log(this.band + " " + callArgs);
+            }
+        }
+
+        let other = {
+            band: "FF4"
+        }
+        // user.getBand(); // 指向user
+        /* (this指向 ， 传递的额外参数) ：改变指向 */
+        // user.getBand.call(other); // 指向other
+        // user.getBand.apply(other); // 指向other
+        // user.getBand.bind(other)(); // bind返回的是函数。需要调用。
+
+        /* call与apply的区别 */
+        // 接受参数不同
+        user.getBand.call(other, "test");  // 基本数据类型
+        user.getBand.apply(other, ["test", "dasd"]);  // 数组
+
+        // 一组数据的大小值区分
+        console.log(Math.min.apply(null, [1, 2, -1])); // 此处传递null 默认 window
+        console.log(Math.min.call(window, 1, 2, -1)); // 此处传递null 默认 window
+        console.log(Math.min(1, 2, -1)); // 对于call的Math的改进写法
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

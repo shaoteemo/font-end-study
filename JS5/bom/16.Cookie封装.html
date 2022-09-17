@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="cookie.js"></script>
+</head>
+<body>
+    <h3>Cookie</h3>
+    <script>
+        /* 尝试写入Cookie */
+        // document.cookie = "name=shaoteemo;";
+        /* 使用封装的Cookie */
+        cookieUtil.set("shaoteemo" , "这是新增的Cookie",20);
+        /* 读取Cookie */
+        console.log(cookieUtil.get("shaoteemo"));
+        /* 移除Cookie */
+        cookieUtil.remove("shaoteemo");
+    </script>
+</body>
+</html>
