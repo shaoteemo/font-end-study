@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            实例方法:
+            实例属性:
+            静态方法:
+            静态属性:
+        */
+
+        function Animal(type, age){
+            this.type = type;
+            this.age = age;
+        }
+
+        /* 实例方法 */
+        Animal.prototype.sound = function() {
+            console.log(this.type + "叫");
+        }
+
+        let dog = new Animal("狗" ,12);
+        let cat = new Animal("猫" ,12);
+        /* 实例方法调用 */
+        dog.sound();
+        cat.sound();
+
+        /* 静态方法 */
+        Animal.eat = function () {
+            console.log("吃饭");
+        }
+
+        Animal.eat();
+
+        /* 实例属性 */
+        Animal.prototype.nose = "鼻子";
+        console.log(dog.nose);
+        console.log(Animal.nose);
+
+        /* 静态属性 */
+        Animal.mouse = "嘴巴";
+        console.log(Animal.mouse);
+        console.log(dog.mouse);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

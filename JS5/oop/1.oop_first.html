@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /* JS中的构造函数 */
+        function Person(){
+            /* 函数中的this，代表索要生成的对象实例。 */
+            /* 构造函数的this指向当前实例 */
+            this.name = "张三";
+            this.age = 30;
+        }
+
+        /* 生成对象时必须使用new关键字 */
+        let person = new Person();
+        console.log(person);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
