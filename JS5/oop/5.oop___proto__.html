@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>__proto__属性</title>
+    <script>
+
+        function Animal(){}
+
+        let animal = new Animal();
+
+        /* 获取一个对象的原型 */
+        console.log(Animal.prototype);
+        console.log(animal.__proto__);
+        /* 上面的两个原型一致 */
+        console.log(Animal.prototype === animal.__proto__);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

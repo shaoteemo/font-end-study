@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链</title>
+    <script>
+        /* 
+            JS中一切皆对象，对象可以向上追溯至（顶层父类）Object.prototype。
+            toString()、valueOf()来自Object。
+            原型链的尽头为null。
+        */
+        function Animal() {}
+        console.log(Animal.prototype);
+
+        // 获取父类Object
+        console.log(Animal.prototype.__proto__);
+
+        console.log(Animal.prototype.__proto__ === Object.prototype);
+
+        /* 
+            在JS中属性和方法优先使用自身（Override）没有则会向上追溯直至Object.prototype 如果都没有 => undefined
+        */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

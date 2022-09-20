@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Animal() {}
+
+        function Person() {}
+
+        let animal = new Animal();
+
+        let person = new Person();
+
+        console.log("创建的对象是否为Animal的实例？" + (animal instanceof Animal));
+        console.log("创建的对象是否为Animal的实例？" + (person instanceof Animal));
+
+        // 由于instanceof检查的是整个原型链因此一个实例可能有多个原型实例
+        console.log("Animal是Object的实例？" + (animal instanceof Animal));
+
+        // instanceof只能检测对象
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
