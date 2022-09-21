@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Animal(){}
+        /* Object方法 */
+        // getPrototypeOf():获取实例对象的原型对象
+        let obj = Object.getPrototypeOf(new Animal());
+        console.log(obj);
+
+        // setPrototypeOf() : 设置原型对象(有点类似继承，继承的对象拥有原型对象的方法和属性)
+        let smt = {};
+        let com = {
+            title: "shaoteemo",
+            getTitle: function () {
+                console.log(this.title);;
+            }
+        }
+        // 报错
+        // smt.getTitle(); 
+        Object.setPrototypeOf(smt , com);
+        smt.getTitle();
+
+        // create(): 让一个对象继承另一个对象的属性和方法
+        let newCom = Object.create(com);
+        // 此方法动态继承了原型。在原型上添加或修改任何方法，会立刻反映在新对象之上
+        com.title = "我被修改了W";
+        newCom.getTitle();
+        // 此方法的两参方法
+        let books = {
+            java: {
+                value: "JDK8"
+            },
+            javascript:{
+                value: "ES5"
+            }
+        };
+        // 扩展自身的成员属性
+        let noteBook = Object.create(books , {
+            // 这种写法固定
+            c:{
+                value: "C11"
+            }
+        });
+        console.log(noteBook.javascript.value);
+        console.log(noteBook.c);
+
+        // getOwnPropertyNames(): 返回一个数组，成员是参数对象本身的所有属性的键名，不包含继承的属性键名
+        console.log(Object.getOwnPropertyNames(books));
+
+        // hasOwnProperty(): 返回一个布尔值，用于判断某个属性定义在对象自身，还是定义在原型链上
+        console.log(noteBook.hasOwnProperty("c"));  // true
+        console.log(noteBook.hasOwnProperty("java")); // false
+        console.log(Array.hasOwnProperty("length"));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
