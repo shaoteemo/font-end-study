@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>严格模式</title>
+    <script>
+        // 启用严格模式.此时脚本段内所有代码都是严格模式
+        'use strict';
+        console.log("这是严格模式.");
+    </script>
+    <script>
+        // function add(x , y , x) {  // 严格模式下报错
+        function add(x , y) {
+            'use strict'
+            // 函数体内部是严格模式
+            return x + y;
+        }
+
+        console.log(add(10 , 20));
+    </script>
+
+    <script>
+        'use strict'
+        /* 
+            eval、arguments 不可用作标识名
+            严格模式下，使用eval或者arguments作为标识名，将会报错。下面的语句都会报错
+        */
+       let eval = "20"; // 严格模式下报错
+       console.log(eval);
+
+    </script>
+
+    <script>
+        // 在正常模式下.一个变量没有声明就赋值为全局变量
+        'use strict'
+        function print(){
+            num = 20;  // 严格模式下报错
+            console.log(num);
+        }
+
+        print();
+
+        /* 
+            禁止 this 关键字指向全局对象
+            禁止使用 with 语句
+            arguments 不再追踪参数的变化
+        */
+    </script>
+
+    <script>
+        'use strict'
+        console.log(Math.min.apply(null , [12,13]));
+        console.log(Math.min.apply(window , [12,13]));
+        window = this; //禁止 this 关键字指向全局=>window
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的继承</title>
+    <script>
+        function Animal(type , age){
+            this.age = age;
+            this.type = type;
+        }
+
+        Animal.prototype.getType = function (){
+            console.log(this.type);
+        }
+
+        Animal.prototype.getAge = function () {
+            console.log(this.age);
+        }
+
+        function Dog(type , age , dogSound){
+            // 继承属性：调用父类构造函数。注意这种只会继承属性。
+            Animal.call(this ,type, age);
+            this.dogSound = dogSound
+        }
+        // 继承父类方法
+        for(let index in Animal.prototype){
+            Dog.prototype[index] = Animal.prototype[index];
+        }
+
+        Dog.prototype.getDogSound = function () {
+            console.log(this.dogSound);
+        }
+
+        Dog.prototype.getType = function () {
+            console.log(this.type + ":::::");
+        }
+
+        let dog = new Dog("小花", 222 , "狗叫");
+        dog.getAge();
+        dog.getType();
+        dog.getDogSound();
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

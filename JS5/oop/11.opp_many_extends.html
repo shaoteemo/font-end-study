@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多重继承</title>
+    <!-- 
+        JavaScript 不提供多重继承功能，即不允许一个对象同时继承多个对象。但是，可以通过变通方法，实现这个功能
+     -->
+    <script>
+        function Animal(){
+            this.type = "狗";
+        }
+
+        Animal.prototype.getType = function() {
+            console.log(this.type);
+        }
+
+        function Eat(){
+            this.eat = "吃";
+        }
+
+        Eat.prototype.getEat = function () {
+            console.log(this.eat);
+        }
+
+        /* 多重继承 */
+        function Dog(){
+            Animal.call(this);
+            Eat.call(this);
+        }
+        /* 方法继承:新方式 */
+        Dog.prototype = Object.create(Animal.prototype);
+        // 合并方法。继承Eat
+        Object.assign(Dog.prototype , Eat.prototype);
+        // 指定构造函数constructor
+        Dog.prototype.constructor = Dog;
+
+        console.log(Dog.prototype);
+
+        let dog = new Dog();
+        console.log(dog.type);
+        console.log(dog.eat);
+        dog.getEat();
+        dog.getType();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
