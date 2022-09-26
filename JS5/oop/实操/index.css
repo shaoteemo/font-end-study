@@ -1,0 +1,18 @@
+.tab_box input{
+    background-color: #f1f1f1;
+    border: 1px solid #ff0000;
+}
+
+.tab_box .active{
+    background-color: #e9f;
+}
+
+.tab_box div{
+    display: none;
+    width: 300px;
+    height: 250px;
+    padding: 10px;
+    background: #e9f;
+    border: 1px solid #ff0000;
+    border-radius: 8px;
+}
