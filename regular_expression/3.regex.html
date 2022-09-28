@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let uname = "shaoteemo";
+        let unameR = "shaotxxeemo";
+        let unameF = "shaot\reemo";
+        let str = "sh";
+
+        console.log(uname.indexOf(str) >= 0 ? true : false); // 字符串匹配
+
+        /* 字面量匹配 */
+        let reg = /sh/;
+        console.log(reg.test(uname));
+
+        /* 
+            元字符:除了字面量字符以外，还有一部分字符有特殊含义，不代表字面的意思。
+                点字符（.):匹配除回车（\r）、换行(\n) 、行分隔符（\u2028）和段分隔符（\u2029）以外的所有字符。只能一个字符
+                位置字符 ： ^ :字符串的开始位置 ；$：字符串的结束位置
+                选择符（|）：在正则表达式中表示“或关系”（OR）
+        */
+       console.log("===================点字符（.)========================");
+        let regex = /t.e/;
+        console.log(regex.test(uname));
+        console.log(regex.test(unameR));
+        console.log(regex.test(unameF));
+
+        console.log("===================位置字符========================");
+        let regex2Start = /^shaote/;
+        console.log(regex2Start.test(uname));
+        console.log(regex2Start.test(unameR));
+        console.log("\r\n");
+        let regex2End = /xxeemo$/;
+        console.log(regex2End.test(uname));
+        console.log(regex2End.test(unameR));
+        console.log("\r\n");
+        let regex2StartEnd = /^sh$/;
+        console.log(regex2StartEnd.test("sh"));  // 只能这种匹配
+        console.log(regex2StartEnd.test("shsh"));
+
+        console.log("===================选择符（|）========================");
+        let regexOr = /shaote|shaotx/;
+        console.log(regexOr.test(uname));
+        console.log(regexOr.test(unameR));
+        console.log(regexOr.test(unameF));
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

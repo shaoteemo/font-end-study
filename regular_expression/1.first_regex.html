@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 一个常见的正则表达式 */
+        let regex = /ao/;
+        console.log(regex.test("shaoteemo"));
+        console.log(regex.test("shateemo"));
+        console.log(regex.exec("shateemo"));
+        console.log(regex.exec("shaoteemo"));
+        /* 构造函数方式 */
+        let constRegex = new RegExp("12345");
+        console.log(constRegex.exec("12345413413"));
+        console.log(constRegex.test("654254123"));
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

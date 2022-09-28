@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let uname = "smart";
+        let reg = /sm/;
+        let names = "smart,ppt,word,excel,Bob"
+
+        /* search匹配 */
+        console.log(uname.search("sm1")); // 匹配字符串返回开始下标。否则返回-1
+        console.log(uname.search(reg));
+
+        /* Match 匹配 */
+        console.log(uname.match("sm1"));
+        console.log(uname.match(reg));
+
+        /* replace方法。正则匹配替换 */
+        console.log(uname.replace(reg , ""));
+
+        /* split方法匹配切割 */
+        console.log(names.split(/,/));
+        console.log(names.split(/,/ , 2));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
