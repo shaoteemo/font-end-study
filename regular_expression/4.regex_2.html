@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转义字符</title>
+    <script>
+        /* 
+            正则表达式中，需要反斜杠转义的，一共有12个字符：^、.、[、$、(、)、|、*、+、?、{和\\
+        */
+        // 匹配带有^的字符串
+        let regex = /^sh/;
+        let regex2 = /\^sh/;
+        let regex3 = /\^、\.、\[、\$、\(、\)、\|、\*、\+、\?、\{、\\/;
+        console.log(regex.test("^sh"));  // false
+        console.log(regex2.test("^sh")); // true
+        console.log(regex3.test("^、.、[、$、(、)、|、*、+、?、{、\\"));
+
+        let regNew = new RegExp("1\+1");
+        let regNew2 = new RegExp("1\\+1");
+        console.log(regNew.test("1+1"));  // false
+        console.log(regNew2.test("1+1")); // true
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

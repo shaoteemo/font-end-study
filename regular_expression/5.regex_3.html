@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匹配规则之字符类</title>
+    <script>
+        /* 
+            字符类表示有一系列字符可供选择，只要匹配其中一个就可以了。
+            所有可供选择的字符都放在方括号内，比如[xyz]表示x、y、z之中任选一个匹配
+        */
+       console.log(/[abc]/.test("abe"));
+       console.log(/[abc]/.test("evn"));
+
+       console.log("^脱字符");
+       // ^脱字符：如果方括号内的第一个字符是[^]，则表示除了字符类之中的字符，其他字符都可以匹配。
+       console.log(/[^abc]/.test("aabbcc"));
+       console.log(/[^abc]/.test("abe"));
+       console.log(/[^abc]/.test("evn"));
+       
+       console.log("-连接符");
+       // -连接符：某些情况下，对于连续序列的字符，连字符（-）用来提供简写形式，表示字符的连续范围。
+       console.log(/[a-c]/.test("abcd")); // == abc
+       console.log(/[0-2]/.test("25"));   // == 012
+       console.log(/[A-C]/.test("abcd")); // == ABC
+       // 下面的写法合法
+       let regex = /[a-z0-9A-Z]/;
+       let regex2 = /[0-9.,]/;
+       let regex3 = /[a-z0-9-]/;
+       let regex4 = /[1-31]/;  // 这个匹配1-3 ；[1-3z] => 1,2,3,z
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
