@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量词符和贪婪模式</title>
+    <script>
+        /* 
+            量词符：量词符用来设定某个模式出现的次数
+                ?:表示某个模式出现0次或1次。==={0,1}.
+                *:表示某个模式出现0此或多次。==={0,}.
+                +:表示某个模式出现1此或多次。==={1,}.
+        */
+       console.log(/t?est/.test('test')); // true
+       console.log(/t?est/.test('est')); // true
+       console.log(/t?est/.test('tttest')); // true ?
+       console.log(/^t?est/.test('tttest')); // false 
+
+       console.log(/t*est/.test('est')); // true
+       console.log(/t*est/.test('test')); //true
+       console.log(/t*est/.test('ttest')); // true
+
+       console.log(/t+est/.test('est')); // false
+       console.log(/t+est/.test('test')); //true
+       console.log(/t+est/.test('ttest')); // true
+       console.log('==========贪婪模式==========');
+
+       /* 
+            贪婪模式
+                贪婪模式默认情况下量词符+和*都是最大可能匹配，即匹配直到下一个字符不满足匹配规则为止。
+       */
+      console.log(/a+/.exec("aaa")); // ['aaa'] // 匹配三个
+      console.log(/a*/.exec("aaa")); // ['aaa'] // 匹配三个
+
+      // 如果想将贪婪模式改为非贪婪模式，可以在量词符后面加一个问号。
+      console.log(/a+?/.exec("aaa")); // ['a']  匹配了一个
+      console.log(/a*?/.exec("aaa")); // ['']   匹配了0个
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

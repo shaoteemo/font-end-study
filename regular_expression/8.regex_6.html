@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修饰符与组匹配</title>
+    <script>
+        /* 
+            修饰符（modifier）表示模式的附加规则，放在正则模式的最尾部
+                修饰符有三个：
+                    g修饰符:全局匹配
+                    i修饰符:忽略大小写
+                    m修饰符:多行模式
+        */
+       console.log("abba".replace(/b/,'m')); // ==> amba
+       console.log("abbab".replace(/b/g,'m')); // ==> amma
+       //正则模式不含g修饰符，每次都是从字符串头部开始匹配。
+       let uname = 'abba';
+       let regex = /b/g;
+       console.log(regex.test(uname));  // /b/ ==> ture  ;/b/g ==> ture
+       console.log(regex.test(uname));  // /b/ ==> ture  ;/b/g ==> ture
+       console.log(regex.test(uname));  // /b/ ==> ture  ;/b/g ==> false
+
+       //默认情况下，正则对象区分字母的大小写，加上i修饰符以后表示忽略大小写（ignorecase）
+       console.log(/abc/.test('ABC')); // false
+       console.log(/abc/i.test('ABC')); // ture
+
+       /* 
+            m修饰符表示多行模式（multiline），会修改^和$的行为。
+            默认情况下（即不加m修饰符时），^和$匹配字符串的开始处和结尾处，加上m修饰符以后，^和$还会匹配行首和行尾，即^和$会识别换行符（\n）
+       */
+      console.log(/world$/.test('world\n'));  // false
+      console.log(/world$/m.test('world\n'));  // ture
+
+      // 联用
+      console.log('ABCCBA'.replace(/c/ , "$")); // ABCCBA
+      console.log('ABCCBA'.replace(/c/i , "$")); // AB$CBA
+      console.log('ABCCBA'.replace(/c/ig , "$")); // AB$$BA
+
+      /* 
+        组匹配()：
+            正则表达式的括号表示分组匹配，括号中的模式可以用来匹配分组的内容
+      */
+     console.log(/free+/g.exec('freefree')); // ture ==> free 
+     console.log(/(free)+/g.exec('freefree')); // ture ==> freefree 表示匹配多个free
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

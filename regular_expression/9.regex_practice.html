@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则应用场景与实现</title>
+</head>
+
+<body>
+    推荐正则表达式在线工具：<a href="https://tool.oschina.net/regex/" target="_blank">在线工具</a>
+    <br>
+    <br>
+    <br>
+    <input type="text" placeholder="身份证" id="idCard"><input id="sub" type="button" value="提交">
+    <br>
+    <br>
+    <br>
+    <input type="text" placeholder="手机号" id="phone"><input id="sub_phone" type="button" value="提交">
+
+    <script>
+        let idCard = document.getElementById("idCard");
+        let sub = document.getElementById("sub");
+        /* 
+            身份证规则
+                1.老身份证：15位纯数字
+                2.新身份证：18为纯数字  17位传数字+字母X
+        */
+        let regexIdCard = /^(\d){15}$|^[0-9]{18}$|^[\d]{17}X{1}$/i;
+        idCard.addEventListener('input', function () {
+            if (regexIdCard.test(this.value)) {
+                this.style.boxShadow = '0px 0px 10px 0px green';
+                sub.value = '提交';
+                sub.style.color = 'green';
+            } else {
+                this.style.boxShadow = '0px 0px 10px 0px red';
+                sub.value = this.value.length;
+                sub.style.color = 'red';
+            }
+        })
+
+        /* 
+            手机号：
+                1.第一个数字一定是1
+                2.第二个数字：3-9
+        */
+       
+       let phone = document.getElementById("phone");
+       let subPhone = document.getElementById("sub_phone");
+       let regexphone = /^(^1)([3-9]{1})\d{9}$/;
+       phone.addEventListener('input', function () {
+            if (regexphone.test(this.value)) {
+                this.style.boxShadow = '0px 0px 10px 0px green';
+                subPhone.value = '提交';
+                subPhone.style.color = 'green';
+            } else {
+                this.style.boxShadow = '0px 0px 10px 0px red';
+                subPhone.value = this.value.length;
+                subPhone.style.color = 'red';
+            }
+        })
+    </script>
+</body>
+
+</html>
