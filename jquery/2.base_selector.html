@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        window.onload = function () {
+            /* 原生JS写法 */
+            // 类选择器
+            let box = document.getElementsByClassName("box")[0];
+            // 元素选择器
+            let span = document.getElementsByTagName("span")[0];
+            // ID选择器
+            let selector = document.getElementById('selector');
+
+            /* 给NAV子代元素加边框 */
+            // 获取Nav
+            let nav = document.getElementsByClassName('nav')[0];
+            // 获取直接子li
+            let navChilds = nav.children;
+            // 填充边框
+            /* for(let index = 0 ; index < navChilds.length ; index ++){
+                if(navChilds[index].nodeType !== 3){
+                    navChilds[index].style.border = '1px solid green';
+                }
+            } */
+            /* 给后代li加边框 */
+            let navAllLi = nav.getElementsByTagName("li");
+            for(let index = 0 ; index < navAllLi.length ; index ++){
+                if(navAllLi[index].nodeType !== 3){
+                    navAllLi[index].style.border = '1px solid yellow';
+                }
+            }
+        }
+    </script>
+    <script>
+        $(window).ready(function () {
+            /* jQuery写法 */
+            // 类选择器
+            let boxJQuery = $('.box');
+            // 元素选择器
+            let spanJQuery = $('span');
+            // ID选择器
+            let selectorJQuery = $('#selector');
+            boxJQuery.html("Class Selector(jQuery)");
+            spanJQuery.html("Element Selector(jQuery)");
+            selectorJQuery.text("Id Selector(jQuery)");
+
+            /* 给NAV子代元素加边框 */
+            // $('.nav > li').css('border' , '1px solid red');
+            // 给后代li加边框
+            $('.nav li').css('border' , '1px solid black');
+            
+
+        })
+    </script>
+    <style>
+        #selector {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">Class Selector</div>
+    <span>Element Selector</span>
+    <a id="selector" href="javaScript:void(0);">Id Selector</a>
+
+    <div>
+        <ul class="nav">
+            <li>jQuery</li>
+            <li>
+                <ul>
+                    <li>Vue</li>
+                    <li>Vue-Router</li>
+                    <li>Vue-Cli</li>
+                </ul>
+            </li>
+            <li>Angular</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

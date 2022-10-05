@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(function(){
+            // 修改span。完全匹配：选择指定属性是给定值的元素
+            $("input[value='uname']").next().text("用户名");
+
+            // 选择指定属性值等于给定字符串或以该字符串为前缀（该字符串后跟一个连字符“-” ）的元素
+            $("input[value|='a']").parent().css("border" , "1px solid red");
+
+            // 选择指定属性具有包含一个给定的子字符串的元素。（选择给定的属性是以包含某些值的元素）
+            $("input[value*='na']").parent().css("border" , "1px solid black");
+
+            // 选择指定属性用空格分隔的值中包含一个给定值的元素
+            $('div[class~="b"]').css("border" , "1px solid green");
+
+            // 选择指定属性是以给定值结尾的元素。这个比较是区分大小写的
+            $("input[value$='es']").parent().css('background-color','#e0e0e0');
+
+            // 选择指定属性是以给定字符串开始的元素
+            $("input[value^='una']").parent().css('background-color','rgba(134,56,234,0.3)');
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <input type="radio" name="user" value="uname">
+        <span>name</span>
+    </div>
+    <div class="c d e">
+        <input type="radio" name="user" value="ages">
+        <span>age</span>
+    </div>
+    <div>
+        <input type="radio" name="user" value="a-age">
+        <span>age</span>
+    </div>
+    <div class="a b c">
+        <input type="radio" name="user" value="a-age">
+        <span>age</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jQuery引入 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        /* 原生JS写法 */
+        /* window.onload = function() {
+            let content = document.getElementsByTagName('div')[0];
+            content.innerText = "Hello, jQuery!";
+        } */
+    </script>
+    <script>
+        /* jQuery写法 */
+        $(window).ready(function () {
+            $("#content").text("Hello, jQuery!")
+        })
+    </script>
+</head>
+<body>
+    <div id="content">jQuery</div>
+</body>
+</html>
