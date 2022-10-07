@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(function(){
+            /* :eq(index) 选择器：在匹配的集合中选择索引(0开始)值为index的元素。 */
+            $("#part_1 li:eq(1)").css("color" , "red");  // Python
+
+            /* :even 选择器：选择所引值为偶数的元素。注意这儿索引从0开始。0,2,4... */
+            $("#part_2 li:even").css("color" , "red"); // Java , Vue ，Ruby
+
+            /* ：odd 选择器：选择索引值为奇数元素。注意这儿索引从0开始。1,3,5... */
+            $("#part_3 li:odd").css("color" , "red"); // Python , C/C++
+
+            /* :first 选择器：选择第一个匹配的元素 */
+            $("#part_4 li:first").css("color" , "red");
+
+            /* :last 选择器：选择最后匹配的元素 */
+            $("#part_5 li:last").css("color" , "red");
+
+            /* :gt(index) 选择器：选择大于index的元素 */
+            $("#part_6 li:gt(2)").css("color" , "red");
+            /* :lt(index) 选择器：选择小于index的元素 */
+            $("#part_7 li:lt(2)").css("color" , "red");
+        })
+    </script>
+</head>
+<body>
+    <div id="part_1">Part 1
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Vue</li>
+            <li>C/C++</li>
+            <li>Ruby</li>
+        </ul>
+    </div>
+    <div id="part_2">Part 2
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Vue</li>
+            <li>C/C++</li>
+            <li>Ruby</li>
+        </ul>
+    </div>
+    <div id="part_3">Part 3
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Vue</li>
+            <li>C/C++</li>
+            <li>Ruby</li>
+        </ul>
+    </div>
+    <div id="part_4">Part 4
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Vue</li>
+            <li>C/C++</li>
+            <li>Ruby</li>
+        </ul>
+    </div>
+    <div id="part_5">Part 5
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Vue</li>
+            <li>C/C++</li>
+            <li>Ruby</li>
+        </ul>
+    </div>
+    <div id="part_6">Part 6
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Vue</li>
+            <li>C/C++</li>
+            <li>Ruby</li>
+        </ul>
+    </div>
+    <div id="part_7">Part 7
+        <ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Vue</li>
+            <li>C/C++</li>
+            <li>Ruby</li>
+        </ul>
+    </div>
+</body>
+</html>
