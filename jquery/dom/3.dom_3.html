@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(function () {
+            /* 在每个匹配的元素外层包上一个html元素 */
+            $("#content:eq(0)").wrap("<div class='container'></div>");
+
+            /* 将匹配元素集合的父级元素删除，保留自身在原来的位置 */
+            $("#content").unwrap();
+
+            /* 在所有匹配元素外面包一层HTML结构 */
+            $("em").wrapAll("<div>");
+            
+            /* 在匹配元素里的内容外包一层结构 */
+            $("em").wrapInner("<div class='container'>");
+        })
+    </script>
+    <style>
+        .container{
+            color: darkcyan;
+        }
+    </style>
+</head>
+<body>
+    <div><span id="content">这是一段文本(原本我是黑色的)</span></div>
+    <div>
+        <em>这是一段文本(原本我是黑色的)</em>
+        <em>这是一段文本(原本我是黑色的)</em>
+        <em>这是一段文本(原本我是黑色的)</em>
+    </div>
+</body>
+</html>

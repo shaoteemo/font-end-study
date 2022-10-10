@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        /* 原生JS添加class属性 */
+        /* window.onload = function () {
+            let div1 = document.getElementsByTagName("div")[0];
+            div1.classList.add("test2");
+            div1.removeAttribute("class");
+        } */
+    </script>
+    <script>
+        /* JQuery操作classs属性 */
+        $(window).ready(function() {
+            // 添加Class属性
+            $("div").addClass("test");
+            $("div").addClass("test2 test3");
+            // 移除class
+            $("div").removeClass("test2");
+            // $("div").removeClass(); // 全部移除
+            // toggle切换有则添加没有移除
+            $("div").toggleClass("test3");
+
+            // 是否存在否个class属性
+            if($("div").hasClass("test")){
+                console.log("存在class属性：test");
+            }
+
+        })
+    </script>
+</head>
+<body>
+    <div class="test"></div>
+</body>
+</html>

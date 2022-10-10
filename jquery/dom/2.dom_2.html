@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(window).ready(function () {
+            console.log($(".box").html());
+            $(".box").html("<h1>Text Content--Big</h1>");
+
+            // 纯文本
+            // $(".box").text("<h1>Text Content--Big</h1>");
+
+            // 获取value属性值.常用于input
+            let vaule = $("#uname").val();
+            console.log(vaule);
+            $("#uname").val("新设置的值");
+            console.log($("#uname").val());
+
+            //attr获取属性值或设置值
+            let classVal = $(".box").attr("class");
+            console.log(classVal);
+            // 设置值
+            $(".box").attr("my" , "自定义属性");
+            $(".box").attr({
+                "my":"自定义属性",
+                "my2":"自定义属性",
+                "title":"自定义属性"
+            });
+
+            // 删除属性
+            $(".box").removeAttr("my2");
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box">Text Content</div>
+    <div><input type="text" name="uname" id="uname" value="default"></div>
+</body>
+</html>
