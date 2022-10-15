@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery操作CSS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            padding: 10px;
+            border: 1px dashed greenyellow;
+            margin: 2px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(function(){
+            // 获取当前元素的样式
+            let boxColor = $(".box").css("background-color");
+            console.log(boxColor);
+            // 设置样式(properties: Object)
+            $(".container").css({
+                "width": "300px",
+                "height": "300px",
+                "background-color": "red",
+                // 如果属性有-符号下面的写法合法
+                marginTop: "5px"
+            });
+
+            /* 获取当前元素高度与宽度 */
+            let boxHeight = $(".box").height();
+            let boxWidth = $(".box").width();
+            console.log("box的高/宽：" + boxHeight + "/" + boxWidth);
+
+            // 设置宽度和高度
+            $(".box").height(250).width(250);
+
+            /* 包括padding的元素宽度和高度 */
+            let innerHeight = $(".box").innerHeight();
+            let innerWidth = $(".box").innerWidth();
+            console.log(innerHeight , " ==包括padding的元素宽度和高度== " , innerWidth);
+
+            /* 获取元素的当前宽度值和高度值,包括padding，border和选择性的margin */
+            let outerHeight = $(".box").outerHeight();
+            let outerWidth = $(".box").outerWidth();
+            console.log(outerHeight , " ==包括padding，border的元素宽度和高度== " , outerWidth);
+            // 计算选择性margin
+            let outerHeight1 = $(".box").outerHeight(true);
+            let outerWidth1 = $(".box").outerWidth(true);
+            console.log(outerHeight1 , " ==包括padding，border和选择性的margin的元素宽度和高度== " , outerWidth1);
+        })
+    </script>
+    <script>
+        /* CSS操作2 */
+        $(function() {
+            console.log("===================================CSS操作2=======================================");
+            /* 获取元素相对文档的位置 */
+            let location = $("#container").offset();
+            console.log(location);
+            // 设置元素坐标
+            /* $("#container").offset({
+                left: 41,
+                top: 30
+            }); */
+
+            /* 相对于父级定位(position) */
+            // 利用offset获取当前元素距离左边的值
+            let innerContainer = $("#innerContainer");
+            let innerContainerOffset = innerContainer.offset();
+            console.log(innerContainerOffset); // 100 + 10 + 0 (父级+本级+各自的边框)
+            //利用position获取当前元素距离左边的值
+            let innerContainerPosition = innerContainer.position();
+            console.log(innerContainerPosition);
+
+            /* 获取元素的当前水平和垂直滚动条的位置。设置每个匹配元素的水平和垂直滚动条位置 */
+            // 设置默认滚动位置
+            $("#text").scrollTop(100).scrollLeft(100);
+            console.log($("#text").scrollTop() + " 距离上边< 滚动位置获取 >距离左边 " + $("#text").scrollLeft());
+        })
+    </script>
+</head>
+<body>
+     <div><h2>CSS操作1</h2></div>
+     <div class="box"></div>
+     <div class="container"></div>
+     <div><h2>CSS操作2</h2></div>
+     <div id="container"
+        style=
+        "
+            width: 200px;
+            height: 200px;
+            background-color: chartreuse;
+            position: relative;
+            left: 100px;
+            top: 50px;
+        "
+     ></div>
+
+     <div id="innerContainerOut" style=
+        "
+            top: 50px;
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+            position: relative;
+            margin-top: 5px;
+            left: 100px;
+        "
+     ><div id="innerContainer" style=
+        "
+            width: 50px;
+            height: 50px;
+            background-color: chocolate;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        "
+        ></div>
+     </div>
+
+     <div id="text"
+        style=
+            "
+                position: relative;
+                top: 55px;
+                width: 200px;
+                height: 200px;
+                background-color: gray;
+                overflow: scroll;
+            "
+     >
+        <h1>ShaoTeemo</h1>
+        <p style="height: 1000px;width: 1000px;">shaoteemo</p>
+    </div>
+
+</body>
+</html>
