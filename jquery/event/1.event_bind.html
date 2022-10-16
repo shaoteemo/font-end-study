@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件之绑定事件处理器</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(window).ready(function (){
+            let btn = $("#button");
+            // 添加事件
+            btn.on("click" , function (event){
+                console.log(event);
+            });
+            
+            // 事件委托
+            $("ul").on("click" , "li" , function (event){
+                console.log(event.target.textContent);
+            });
+
+            // 触发一次事件
+            $("#one").one("click" , function() {
+                console.log("我触发了.一次后就失效了");
+            })
+
+            // 移除事件处理函数。移除ON事件处理
+            function event(){
+                console.log("移除事件处理程序");
+            }
+            $("#off").on("click" , event);
+
+            $("#off").off("click" , event);
+
+        })
+    </script>
+</head>
+<body>
+    <button id="button">普通按钮</button>
+    <br>
+    <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+    </ul>
+    <br>
+    <button id="one">触发一次的事件</button>
+    <br>
+    <button id="off">移除事件处理程序</button>
+</body>
+</html>

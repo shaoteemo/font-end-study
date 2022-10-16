@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main_box{
+            position: relative;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            float: left;
+        }
+        #container{
+            width: 300px;
+            height: 200px;
+            background-color: #e0e0e0;
+            display: none;
+            float: left;
+        }
+        #in_and_out{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        #in_and_out_child{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            position: relative;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(function() {
+            /* 点击事件 */
+            $("#click").click(function(event){
+                console.log(event.target.textContent + "  被点击了！");
+            })
+
+            /* 鼠标放上 */
+            $("#box").hover(function(){
+                $("#container").css("display","block");
+            },function () {
+                $("#container").css("display","none");
+            })
+
+            /* 鼠标进入与鼠标离开 */
+            $("#in_and_out").mouseenter(function(){
+                console.log("鼠标进入");
+            }).mouseleave(function () {
+                console.log("鼠标移出");
+            })
+
+            /* 在元素区域移动 ?节流与防抖 */
+            $("#in_and_out").mousemove(function(){
+                console.log("在div中移动");
+            })
+
+            /*  */
+            $("#in_and_out_child").mouseover(function () {
+                console.log("进入元素");
+            }).mouseout(function () {
+                console.log("离开元素");
+            })
+        })
+    </script>
+</head>
+<body>
+    <h3>Click事件</h3>
+    <button id="click">鼠标点击事件</button>
+    <h3>Hover事件</h3>
+    <div id="main_box">
+        <div id="box"></div>
+        <div id="container"></div>
+    </div>
+    <h3 style="clear: both;">鼠标进入与鼠标离开（子元素不触发）、在元素区域移动</h3>
+    <div id="in_and_out"></div>
+    <h3>鼠标进入与鼠标离开（子元素触发支持事件冒泡）</h3>
+    <div id="in_and_out_child">
+        <div
+            style="
+                width: 50px;
+                height: 50px;
+                top: 10px;
+                left: 10px;
+                background-color: rebeccapurple;
+                position: absolute;
+            "
+        ></div>
+    </div>
+</body>
+</html>
