@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(window).ready(function() {
+            /* 键盘按下 */
+            $("#text").keydown(function(event) {
+                console.log("键盘按下了(按下的按键)：" + event.key);
+            })
+
+            /* 按键抬起 */
+            $("#keyup").keyup(function(event) {
+                console.log("键盘按下松开了(按下松开的按键)：" + event.key);
+            })
+
+            /* keypress:不分按下松开 */
+            $("#keypress").keypress(function(event) {
+                console.log("Keypress(按下的按键)：" + event.key);
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" id="text" placeholder="键盘按下"><br><br>
+    <input type="text" id="keyup" placeholder="按键松开"><br><br>
+    <input type="text" id="keypress" placeholder="按键">
+</body>
+</html>
