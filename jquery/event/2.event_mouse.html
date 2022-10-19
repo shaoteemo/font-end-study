@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>鼠标事件</title>
     <style>
         #main_box{
             position: relative;
@@ -61,7 +61,7 @@
                 console.log("在div中移动");
             })
 
-            /*  */
+            /* 子元素触发 */
             $("#in_and_out_child").mouseover(function () {
                 console.log("进入元素");
             }).mouseout(function () {
