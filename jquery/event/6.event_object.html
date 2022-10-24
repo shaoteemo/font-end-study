@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        /* 声明：JQuery中的事件对象与原生JS中的事件对象一致 */
+        $(function(){
+            $("#btn").on("click",function(event){
+                // 事件类型
+                console.log(event.type);
+
+                // target：目标对象
+                console.log(event.target);
+                // target转JQuery对象
+                console.log($(event.target).text());
+
+                // 绑定事件对象
+                console.log(event.currentTarget);
+    
+            })
+
+            $("a").on("click",function(event){
+                console.log("阻止用户跳转=> " + event.target.getAttribute("href"));
+                // 阻止事件行为
+                event.preventDefault();
+            })
+
+            $("ul").on("click" , function(event){
+                console.log(event.target);
+            })
+
+            $("li").on("click" , function(event){
+                console.log(event.target);
+                // 阻止事件冒泡
+                event.stopPropagation();
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <button id="btn">点我一下你就知道</button><br>
+    <a href="http://baidui.com" id="baidu">禁止使用百度。</a>
+    <br>
+    <br>
+    <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+    </ul>
+</body>
+</html>

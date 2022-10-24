@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(function(){
+
+            /* each和map的返回值不同，map返回一个新的数组，each返回原始数组 */
+
+            let lis = $("li");
+
+            // map遍历
+            console.log("==========MAP遍历==========");
+            /* 
+                index:　当前元素下标。
+                element：当前元素。
+            */
+            lis.map(function(index , element){
+                console.log(index , " :下标 <======> 元素: ",element);
+            })
+
+            // each遍历
+            console.log("==========EACH遍历==========");
+            lis.each(function(index , element){
+                console.log(index , " :下标 <======> 元素: ",element);
+            })
+            
+            // get获取指定元素
+            console.log("==========GET获取指定yuansu==========");
+            console.log("当前元素组长度：",lis.length);
+            console.log("获取下标为4的元素：", lis.get(4), "变更一下样式为：" ,lis.get(4).style.cssText = "width: 100px ;border: 1px solid red;");
+
+            /* 
+                JQuery转JS对象：
+                    1.获取一个元素：get()
+                    2.获取多个元素遍历。
+                JS转JQuery对象：$(js对象)
+            */
+            
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>This is item1</li>
+        <li>This is item2</li>
+        <li>This is item3</li>
+        <li>This is item4</li>
+        <li>This is item5</li>
+    </ul>
+</body>
+</html>
