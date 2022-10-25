@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>树遍历</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(function () {
+            let top = $(".top");
+            let second = $(".second");
+            // 获取子元素
+            let topChild = top.children();
+            console.log(topChild);
+            console.log(top.children("span"));
+
+            // 寻找后代 
+            console.log(top.find("li"));
+
+            // 获取相邻的同辈元素
+            console.log($("li").eq(0).next());
+
+            // 获取父元素
+            console.log($("li").eq(2).parent().attr("class"));
+
+            // 获取所有同级元素
+            console.log(second.siblings());
+
+        })
+    </script>
+</head>
+<body>
+    <ul class="top">
+        <li>Item 1</li>
+        <li>
+            <ul class="second">
+                <li>Item 2 - 1</li>
+                <li>Item 2 - 2</li>
+            </ul>
+            <span>我是测试Span内</span>
+        </li>
+        <li>Item 3</li>
+        <span>我是测试Span</span>
+    </ul>
+</body>
+</html>
