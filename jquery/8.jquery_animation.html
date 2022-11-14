@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery动画</title>
+    <style>
+        #first{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(window).ready(function(){
+            "use strict";
+            const DELAY = 1000;
+            /* 常规效果 */
+            $("#show").click(function(){
+                //显示元素，2秒延迟
+                $("#first").show(DELAY);
+            })
+
+            $("#hidden").click(function(){
+                //显示元素，2秒延迟
+                $("#first").hide(DELAY);
+            })
+
+            /* 淡入淡出效果 */
+            $("#showIn").click(function(){
+                //显示元素，2秒延迟
+                $("#first").fadeIn(DELAY);
+            })
+
+            $("#hiddenOut").click(function(){
+                //显示元素，2秒延迟
+                $("#first").fadeOut(DELAY);
+            })
+
+            /* 滑动效果 */
+            $("#showSlide").click(function(){
+                //显示元素，2秒延迟
+                $("#first").slideDown(DELAY);
+            })
+
+            $("#hiddenSlide").click(function(){
+                //显示元素，2秒延迟
+                $("#first").slideUp(DELAY);
+            })
+
+            /* 自定义动画 */
+            $('#custom').on('click' , function (){
+                $('#first').animate({
+                    width: "400px",
+                    opacity: 0.5
+                }, 1500)
+            })
+
+            $('#reset').on('click' , function (){
+                document.getElementById("first").style.cssText = 'width: 200px; opacity: 1;';
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div id="first"></div>
+    <button id="show">显示</button><button id="hidden">隐藏</button><br>
+    <button id="showIn">淡入显示</button><button id="hiddenOut">淡出隐藏</button><br>
+    <button id="showSlide">滑动显示</button><button id="hiddenSlide">滑动隐藏</button><br>
+    <button id="custom">自定义动画</button><button id="reset">还原</button>
+</body>
+</html>
